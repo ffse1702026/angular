@@ -1,0 +1,57 @@
+<div xmlns:th="http://www.thymeleaf.org" class="panel panel-primary" style="margin: 0.2em; border-color:">
+	<div class="panel-heading sidebar_header_bg_color">
+		<div class="col_sum" style="padding-left: 12px; padding-right: 12px;">
+			
+		</div>
+	</div>
+	<div class="panel-body"
+		style="padding: 5px; height: calc(100vh - 160px)">
+		<div class="line"></div>
+		<div class="col_sum">
+			<ul class="nav" style="list-style-type: none; margin: 0px">
+				<li><a th:href="@{/inf_admin/agent}"> <span
+						id="menu_company_list"> &nbsp; 見積履歴一覧</span>
+				</a></li>
+				<li><a th:href="@{/inf_admin/history}"><span
+						id="menu_history"> &nbsp; 見積履歴一覧</span>
+				</a></li>
+				<li><a href="#"><span
+						id="menu_setting"> &nbsp; アクセス回数</span>
+				</a></li>
+				<li><a href="#"><span
+						id="menu_change_pass"> &nbsp; ログ参照</span>
+				</a></li>
+				<li><a href="#"><span
+                        id="menu_change_pass"> &nbsp; マスタ管理</span>
+                </a></li>
+                <li><a href="#"><span
+                        id="menu_change_pass"> &nbsp; パスワード変更</span>
+                </a></li>
+			</ul>
+		</div>
+		<div class="line"></div>
+	</div>
+</div>
+
+<!-- <div class="nav-side-menu">
+        <div class="brand">INFINIロゴ</div>
+        <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse"
+            data-target="#menu-content"></i>
+        <div class="menu-list">
+            <ul id="menu-content" class="menu-content collapse out">
+                <li><a th:href="@{/inf_admin/agent}"> 旅行会社一覧 </a></li>
+                <li data-toggle="collapse" data-target="#products" class="collapse"><a
+                    th:href="@{/inf_admin/history}">見積履歴一覧 </a></li>
+                <li data-toggle="collapse" data-target="#service" class="collapsed">
+                    <a href="#"> アクセス回数 </a>
+                </li>
+                <li data-toggle="collapse" data-target="#new" class="collapsed">
+                    <a href="#"> ログ参照 </a>
+                </li>
+                <li><a href="#"> マスタ管理 </a></li>
+
+                <li><a href="#"> パスワード変更 </a></li>
+            </ul>
+        </div>
+    </div> -->
+

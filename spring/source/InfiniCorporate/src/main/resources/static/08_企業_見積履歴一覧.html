@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Style custom -->
+    <link href="css/style.css" rel="stylesheet">
+    <script src="js/script.js"></script>
+
+    <!-- Bootstrap -->
+    <!-- Bootstrap Core CSS -->
+    <link href="bootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="bootstrap/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="bootstrap/dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="bootstrap/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- jQuery -->
+    <script src="bootstrap/vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="bootstrap/vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="bootstrap/dist/js/sb-admin-2.js"></script>
+
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css">
+
+</head>
+
+<script>
+    function initDatePicker() {
+		$('#fromDate').datepicker();
+
+		$('#toDate').datepicker();
+	}
+</script>
+
+<body style="min-width: 768px !important;" onload="initDatePicker()">
+    <nav class="navbar navbar-default navbar-static-top" id="menu" role="navigation">
+        <div class="navbar-header">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#"><b>AGT/企業ロゴ</b></a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" onclick="menu_show_hide()" data-target=".navbar-collapse">
+                    <span class="sr-only"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+        </div>
+        <div class="header_btn_left " id="header_btn_left">
+            <ul class="nav navbar-top-links navbar-collapse navbar-left sidebar-nav navbar-collapse navbar-default" id="side-menu" role="navigation">
+                <li class="dropdown li_custom">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        &nbsp;見積依頼&nbsp;<i class="fa fa-shopping-cart"></i>&nbsp;
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li class="dropdown li_custom">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        &nbsp;見積履歴&nbsp; <i class="fa fa-bar-chart-o fa-fw"></i> &nbsp;
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="header_btn_right">
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown li_custom" style="min-width: 80px; text-align: center">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <span class="show_w_min_1042">LuvinaTest会社　RyuKamiKirena様 &nbsp;</span><i class="fa fa-user"></i>&nbsp;<i class="fa fa-caret-down"></i>
+                    </a>
+
+                    <ul class="dropdown-menu dropdown-user">
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-user fa-fw"></i> Myアカウント
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-sign-out-alt"></i> Log out
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="dropdown li_custom" style="min-width: 80px; text-align: center">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        日本語&nbsp;
+                        <i class="fa fa-globe"></i>&nbsp;<i class="fa fa-caret-down"></i>
+                    </a>
+
+                    <ul class="dropdown-menu dropdown-user">
+                        <li>
+                            <a href="#">
+                                English
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Tiếng Việt
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Italiano
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!--class="container-fluit"-->
+    <div class="page_custom" id="page-top" style="min-height: calc(100vh - 160px)">
+        <div id="content" class="content_review" style="padding-left: 0px">
+            <div class="row_custom">
+                <div class="col-md-12">
+                    <div class="col_sum">
+                        <div class="datepicker_search_s08">
+                            <label class="lbl_search_s08" style="font-size: 16px; padding-right: 5px"><b>検索期間 :</b></label>
+                            <input class="txt" type="text" style="text-align: center; background-color: aliceblue; width: 180px;" data-date-format="yyyy/mm/dd" id="fromDate">
+                            <label style="width: 8%; text-align: center; max-width: 24px">～</label>
+                            <input class="txt" type="text" style="text-align: center; background-color: aliceblue; width: 180px;" data-date-format="yyyy/mm/dd" id="toDate">
+                        </div>
+                        <div class="txt_search_s08">
+                            <label style="text-align: right; font-size: 16px; padding-right: 5px"><b>キーワード :</b></label>
+                            <input type="text" class="txt_time_s08 txt" style="background-color: aliceblue;">
+                            <label style="width: 8px">&nbsp;</label>
+                            <button type="button" class="btn btn-primary btn_h_23">検索</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row_custom">
+
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col_sum" style="float: right; padding-right: 20px">
+                            <label> <b>120</b> 件 </label>
+                        </div>
+                    </div>
+                    <div id="dataTables-example_wrapper" class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                                <div class="row custom_scrollbar" style="overflow-x: auto; overflow-y: hidden; width: calc(100%); height: 740px !important; border: 1px solid #B8CCE4;">
+                                        <div class="col-sm-12" style="padding: 0px;  padding-left: 1px">
+                                            <table style="width: 2400px; margin-bottom: 0px; margin-top: 0px; max-width: none; font-weight: normal; font-size: 14px;" class="table table-hover table-striped table-sm" id="dataTable" cellspacing="0">
+                                                <thead class="tbl_head">
+                                                    <tr role="row">
+                                                        <th class="txt_center_middle" style="width: 40px;" rowspan="1" colspan="1">No</th>
+                                                        <th class="txt_center_middle" style="width: 5%" rowspan="1" colspan="1">見積依頼番号</th>
+                                                        <th class="txt_center_middle" style="width: 6%" rowspan="1" colspan="1">見積依頼日</th>
+                                                        <th class="txt_center_middle" style="width: 6%" rowspan="1" colspan="1">依頼者名</th>
+                                                        <th class="txt_center_middle" style="width: 6%" rowspan="1" colspan="1">電話番号</th>
+                                                        <th class="txt_center_middle" style="width: 6%" rowspan="1" colspan="1">メールアドレス</th>
+                                                        <th class="txt_center_middle" style="width: 8%" rowspan="1" colspan="1">メールアドレス(CC)</th>
+                                                        <th class="txt_center_middle" style="width: 4%;" rowspan="1" colspan="1"> 旅客人数<br>大人</th>
+                                                        <th class="txt_center_middle" style="width: 4%;" rowspan="1" colspan="1">旅客人数<br>小児</th>
+                                                        <th class="txt_center_middle" style="width: 4%;" rowspan="1" colspan="1">旅客人数<br>席あり幼児</th>
+                                                        <th class="txt_center_middle" style="width: 4%;" rowspan="1" colspan="1">旅客人数<br>席なし幼児</th>
+                                                        <th class="txt_center_middle" style="width: 6%" rowspan="1" colspan="1">依頼内容</th>
+                                                        <th class="txt_center_middle" style="width: 7%" rowspan="1" colspan="1">優先条件</th>
+                                                        <th class="txt_center_middle" style="width: 7%" rowspan="1" colspan="1">クラス希望</th>
+                                                        <th class="txt_center_middle" style="width: 7%" rowspan="1" colspan="1">希望運賃</th>
+                                                        <th class="txt_center_middle" style="width: 7%" rowspan="1" colspan="1">その他リクエスト</th>
+                                                        <th class="txt_center_middle" style="width: calc(13%-40px)" rowspan="1" colspan="1">リクエスト入力欄</th>
+                                                    </tr>
+                                                </thead>
+                                            </table>
+                                        </div>
+                                        <div class="custom_scrollbar">
+                                            <div class="col-sm-12" style="padding: 0px">
+                                                <table style="width: 2400px; margin-bottom: 0px; margin-top: 0px; max-width: none; font-weight: normal; font-size: 14px;" class="table table-hover table-striped table-sm" id="dataTable" cellspacing="0">
+                                                    <tbody>
+                                                        <tr class="gradeA odd" role="row">
+                                                            <td style="width: 40px">1</td>
+                                                            <td style="width: 5%">XXXXXX</td>
+                                                            <td style="width: 6%">2019/04/05</td>
+                                                            <td style="width: 6%">インフィニ 太郎</td>
+                                                            <td style="width: 6%">03-2222-4444</td>
+                                                            <td style="width: 6%">infini@infini.com</td>
+                                                            <td style="width: 8%">infini@infini.com, test@test.com</td>
+                                                            <td style="width: 4%; text-align: center">2</td>
+                                                            <td style="width: 4%; text-align: center">0</td>
+                                                            <td style="width: 4%; text-align: center">0</td>
+                                                            <td style="width: 4%; text-align: center">0</td>
+                                                            <td style="width: 6%">見積もり</td>
+                                                            <td style="width: 7%">料金</td>
+                                                            <td style="width: 7%">エコノミー</td>
+                                                            <td style="width: 7%">条件優先(変更可能)</td>
+                                                            <td style="width: 7%">ホテル/レンタカー</td>
+                                                            <td style="width: calc(13%-40px)"></td>
+                                                        </tr>
+                                                        <tr class="gradeA odd" role="row">
+                                                            <td>2</td>
+                                                            <td>XXXXXX</td>
+                                                            <td>2019/04/05</td>
+                                                            <td>インフィニ 太郎</td>
+                                                            <td>03-2222-4444</td>
+                                                            <td>infini@infini.com</td>
+                                                            <td>infini@infini.com, test@test.com</td>
+                                                            <td style="text-align: center">2</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td>見積もり</td>
+                                                            <td>料金</td>
+                                                            <td>エコノミー</td>
+                                                            <td>条件優先(変更可能)</td>
+                                                            <td>ホテル/レンタカー</td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr class="gradeA odd" role="row">
+                                                            <td>3</td>
+                                                            <td>XXXXXX</td>
+                                                            <td>2019/04/05</td>
+                                                            <td>インフィニ 太郎</td>
+                                                            <td>03-2222-4444</td>
+                                                            <td>infini@infini.com</td>
+                                                            <td>infini@infini.com, test@test.com</td>
+                                                            <td style="text-align: center">2</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td>見積もり</td>
+                                                            <td>料金</td>
+                                                            <td>エコノミー</td>
+                                                            <td>条件優先(変更可能)</td>
+                                                            <td>ホテル/レンタカー</td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr class="gradeA odd" role="row">
+                                                            <td>4</td>
+                                                            <td>XXXXXX</td>
+                                                            <td>2019/04/05</td>
+                                                            <td>インフィニ 太郎</td>
+                                                            <td>03-2222-4444</td>
+                                                            <td>infini@infini.com</td>
+                                                            <td>infini@infini.com, test@test.com</td>
+                                                            <td style="text-align: center">2</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td>見積もり</td>
+                                                            <td>料金</td>
+                                                            <td>エコノミー</td>
+                                                            <td>条件優先(変更可能)</td>
+                                                            <td>ホテル/レンタカー</td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr class="gradeA odd" role="row">
+                                                            <td>5</td>
+                                                            <td>XXXXXX</td>
+                                                            <td>2019/04/05</td>
+                                                            <td>インフィニ 太郎</td>
+                                                            <td>03-2222-4444</td>
+                                                            <td>infini@infini.com</td>
+                                                            <td>infini@infini.com, test@test.com</td>
+                                                            <td style="text-align: center">2</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td>見積もり</td>
+                                                            <td>料金</td>
+                                                            <td>エコノミー</td>
+                                                            <td>条件優先(変更可能)</td>
+                                                            <td>ホテル/レンタカー</td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr class="gradeA odd" role="row">
+                                                            <td>6</td>
+                                                            <td>XXXXXX</td>
+                                                            <td>2019/04/05</td>
+                                                            <td>インフィニ 太郎</td>
+                                                            <td>03-2222-4444</td>
+                                                            <td>infini@infini.com</td>
+                                                            <td>infini@infini.com, test@test.com</td>
+                                                            <td style="text-align: center">2</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td>見積もり</td>
+                                                            <td>料金</td>
+                                                            <td>エコノミー</td>
+                                                            <td>条件優先(変更可能)</td>
+                                                            <td>ホテル/レンタカー</td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr class="gradeA odd" role="row">
+                                                            <td>7</td>
+                                                            <td>XXXXXX</td>
+                                                            <td>2019/04/05</td>
+                                                            <td>インフィニ 太郎</td>
+                                                            <td>03-2222-4444</td>
+                                                            <td>infini@infini.com</td>
+                                                            <td>infini@infini.com, test@test.com</td>
+                                                            <td style="text-align: center">2</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td>見積もり</td>
+                                                            <td>料金</td>
+                                                            <td>エコノミー</td>
+                                                            <td>条件優先(変更可能)</td>
+                                                            <td>ホテル/レンタカー</td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr class="gradeA odd" role="row">
+                                                            <td>8</td>
+                                                            <td>XXXXXX</td>
+                                                            <td>2019/04/05</td>
+                                                            <td>インフィニ 太郎</td>
+                                                            <td>03-2222-4444</td>
+                                                            <td>infini@infini.com</td>
+                                                            <td>infini@infini.com, test@test.com</td>
+                                                            <td style="text-align: center">2</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td>見積もり</td>
+                                                            <td>料金</td>
+                                                            <td>エコノミー</td>
+                                                            <td>条件優先(変更可能)</td>
+                                                            <td>ホテル/レンタカー</td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr class="gradeA odd" role="row">
+                                                            <td>9</td>
+                                                            <td>XXXXXX</td>
+                                                            <td>2019/04/05</td>
+                                                            <td>インフィニ 太郎</td>
+                                                            <td>03-2222-4444</td>
+                                                            <td>infini@infini.com</td>
+                                                            <td>infini@infini.com, test@test.com</td>
+                                                            <td style="text-align: center">2</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td>見積もり</td>
+                                                            <td>料金</td>
+                                                            <td>エコノミー</td>
+                                                            <td>条件優先(変更可能)</td>
+                                                            <td>ホテル/レンタカー</td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr class="gradeA odd" role="row">
+                                                            <td>10</td>
+                                                            <td>XXXXXX</td>
+                                                            <td>2019/04/05</td>
+                                                            <td>インフィニ 太郎</td>
+                                                            <td>03-2222-4444</td>
+                                                            <td>infini@infini.com</td>
+                                                            <td>infini@infini.com, test@test.com</td>
+                                                            <td style="text-align: center">2</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td>見積もり</td>
+                                                            <td>料金</td>
+                                                            <td>エコノミー</td>
+                                                            <td>条件優先(変更可能)</td>
+                                                            <td>ホテル/レンタカー</td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr class="gradeA odd" role="row">
+                                                            <td>11</td>
+                                                            <td>XXXXXX</td>
+                                                            <td>2019/04/05</td>
+                                                            <td>インフィニ 太郎</td>
+                                                            <td>03-2222-4444</td>
+                                                            <td>infini@infini.com</td>
+                                                            <td>infini@infini.com, test@test.com</td>
+                                                            <td style="text-align: center">2</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td>見積もり</td>
+                                                            <td>料金</td>
+                                                            <td>エコノミー</td>
+                                                            <td>条件優先(変更可能)</td>
+                                                            <td>ホテル/レンタカー</td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr class="gradeA odd" role="row">
+                                                            <td>12</td>
+                                                            <td>XXXXXX</td>
+                                                            <td>2019/04/05</td>
+                                                            <td>インフィニ 太郎</td>
+                                                            <td>03-2222-4444</td>
+                                                            <td>infini@infini.com</td>
+                                                            <td>infini@infini.com, test@test.com</td>
+                                                            <td style="text-align: center">2</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td>見積もり</td>
+                                                            <td>料金</td>
+                                                            <td>エコノミー</td>
+                                                            <td>条件優先(変更可能)</td>
+                                                            <td>ホテル/レンタカー</td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr class="gradeA odd" role="row">
+                                                            <td>13</td>
+                                                            <td>XXXXXX</td>
+                                                            <td>2019/04/05</td>
+                                                            <td>インフィニ 太郎</td>
+                                                            <td>03-2222-4444</td>
+                                                            <td>infini@infini.com</td>
+                                                            <td>infini@infini.com, test@test.com</td>
+                                                            <td style="text-align: center">2</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td>見積もり</td>
+                                                            <td>料金</td>
+                                                            <td>エコノミー</td>
+                                                            <td>条件優先(変更可能)</td>
+                                                            <td>ホテル/レンタカー</td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr class="gradeA odd" role="row">
+                                                            <td>14</td>
+                                                            <td>XXXXXX</td>
+                                                            <td>2019/04/05</td>
+                                                            <td>インフィニ 太郎</td>
+                                                            <td>03-2222-4444</td>
+                                                            <td>infini@infini.com</td>
+                                                            <td>infini@infini.com, test@test.com</td>
+                                                            <td style="text-align: center">2</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td>見積もり</td>
+                                                            <td>料金</td>
+                                                            <td>エコノミー</td>
+                                                            <td>条件優先(変更可能)</td>
+                                                            <td>ホテル/レンタカー</td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr class="gradeA odd" role="row">
+                                                            <td>15</td>
+                                                            <td>XXXXXX</td>
+                                                            <td>2019/04/05</td>
+                                                            <td>インフィニ 太郎</td>
+                                                            <td>03-2222-4444</td>
+                                                            <td>infini@infini.com</td>
+                                                            <td>infini@infini.com, test@test.com</td>
+                                                            <td style="text-align: center">2</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td>見積もり</td>
+                                                            <td>料金</td>
+                                                            <td>エコノミー</td>
+                                                            <td>条件優先(変更可能)</td>
+                                                            <td>ホテル/レンタカー</td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr class="gradeA odd" role="row">
+                                                            <td>16</td>
+                                                            <td>XXXXXX</td>
+                                                            <td>2019/04/05</td>
+                                                            <td>インフィニ 太郎</td>
+                                                            <td>03-2222-4444</td>
+                                                            <td>infini@infini.com</td>
+                                                            <td>infini@infini.com, test@test.com</td>
+                                                            <td style="text-align: center">2</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td>見積もり</td>
+                                                            <td>料金</td>
+                                                            <td>エコノミー</td>
+                                                            <td>条件優先(変更可能)</td>
+                                                            <td>ホテル/レンタカー</td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr class="gradeA odd" role="row">
+                                                            <td>17</td>
+                                                            <td>XXXXXX</td>
+                                                            <td>2019/04/05</td>
+                                                            <td>インフィニ 太郎</td>
+                                                            <td>03-2222-4444</td>
+                                                            <td>infini@infini.com</td>
+                                                            <td>infini@infini.com, test@test.com</td>
+                                                            <td style="text-align: center">2</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td>見積もり</td>
+                                                            <td>料金</td>
+                                                            <td>エコノミー</td>
+                                                            <td>条件優先(変更可能)</td>
+                                                            <td>ホテル/レンタカー</td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr class="gradeA odd" role="row">
+                                                            <td>18</td>
+                                                            <td>XXXXXX</td>
+                                                            <td>2019/04/05</td>
+                                                            <td>インフィニ 太郎</td>
+                                                            <td>03-2222-4444</td>
+                                                            <td>infini@infini.com</td>
+                                                            <td>infini@infini.com, test@test.com</td>
+                                                            <td style="text-align: center">2</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td>見積もり</td>
+                                                            <td>料金</td>
+                                                            <td>エコノミー</td>
+                                                            <td>条件優先(変更可能)</td>
+                                                            <td>ホテル/レンタカー</td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr class="gradeA odd" role="row">
+                                                            <td>19</td>
+                                                            <td>XXXXXX</td>
+                                                            <td>2019/04/05</td>
+                                                            <td>インフィニ 太郎</td>
+                                                            <td>03-2222-4444</td>
+                                                            <td>infini@infini.com</td>
+                                                            <td>infini@infini.com, test@test.com</td>
+                                                            <td style="text-align: center">2</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td>見積もり</td>
+                                                            <td>料金</td>
+                                                            <td>エコノミー</td>
+                                                            <td>条件優先(変更可能)</td>
+                                                            <td>ホテル/レンタカー</td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr class="gradeA odd" role="row">
+                                                            <td>20</td>
+                                                            <td>XXXXXX</td>
+                                                            <td>2019/04/05</td>
+                                                            <td>インフィニ 太郎</td>
+                                                            <td>03-2222-4444</td>
+                                                            <td>infini@infini.com</td>
+                                                            <td>infini@infini.com, test@test.com</td>
+                                                            <td style="text-align: center">2</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td style="text-align: center">0</td>
+                                                            <td>見積もり</td>
+                                                            <td>料金</td>
+                                                            <td>エコノミー</td>
+                                                            <td>条件優先(変更可能)</td>
+                                                            <td>ホテル/レンタカー</td>
+                                                            <td></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2 text_center">
+                            <div class="dataTables_paginate paging_simple_numbers" id="dataTables-example_paginate">
+                                <ul class="pagination">
+                                    <li class="paginate_button previous disabled" aria-controls="dataTables-example" tabindex="0" id="dataTables-example_previous">
+                                        <a href="#">
+                                            <span class="fa fa-chevron-left"></span>
+                                        </a>
+                                    </li>
+                                    <li class="paginate_button active" aria-controls="dataTables-example" tabindex="0"><a href="#">1</a></li>
+                                    <li class="paginate_button " aria-controls="dataTables-example" tabindex="0"><a href="#">2</a></li>
+                                    <li class="paginate_button " aria-controls="dataTables-example" tabindex="0"><a href="#">3</a></li>
+                                    <li class="paginate_button " aria-controls="dataTables-example" tabindex="0"><a href="#">4</a></li>
+                                    <li class="paginate_button next" aria-controls="dataTables-example" tabindex="0" id="dataTables-example_next">
+                                        <a href="#">
+                                            <span class="fa fa-chevron-right"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: right; padding: 0px 20px 36px 0px">
+                <div class="col_sum" style="margin: right">
+                    <button type="button" class="btn btn-primary" style="width: 120px">戻る</button>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <footer class="sticky-footer bg-white" style="height: 48px;">
+        <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+                <span>Copyright © INFINI TRAVEL 2019</span>
+            </div>
+        </div>
+    </footer>
+
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fa fa-angle-up"></i>
+    </a>
+
+</body>
+
+</html>

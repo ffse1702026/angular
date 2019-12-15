@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Style custom -->
+    <link href="css/style.css" rel="stylesheet">
+    <script src="js/script.js"></script>
+
+    <!-- Bootstrap -->
+    <!-- Bootstrap Core CSS -->
+    <link href="bootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="bootstrap/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="bootstrap/dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="bootstrap/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- jQuery -->
+    <script src="bootstrap/vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="bootstrap/vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="bootstrap/dist/js/sb-admin-2.js"></script>
+
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+
+</head>
+
+<body style="min-width: 480px !important;">
+    <nav class="navbar navbar-default navbar-static-top" id="menu" role="navigation">
+        <div class="navbar-header">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#"><b>AGT/企業ロゴ</b></a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" onclick="menu_show_hide()" data-target=".navbar-collapse">
+                    <span class="sr-only"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+        </div>
+        <div class="header_btn_left " id="header_btn_left">
+            <ul class="nav navbar-top-links navbar-collapse navbar-left sidebar-nav navbar-collapse navbar-default" id="side-menu" role="navigation">
+                <li class="dropdown li_custom">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        &nbsp;見積依頼&nbsp;<i class="fa fa-shopping-cart"></i>&nbsp;
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li class="dropdown li_custom">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        &nbsp;見積履歴&nbsp; <i class="fa fa-bar-chart-o fa-fw"></i> &nbsp;
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="header_btn_right">
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown li_custom" style="min-width: 80px; text-align: center">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <span class="show_w_min_1042">LuvinaTest会社　RyuKamiKirena様 &nbsp;</span><i class="fa fa-user"></i>&nbsp;<i class="fa fa-caret-down"></i>
+                    </a>
+
+                    <ul class="dropdown-menu dropdown-user">
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-user fa-fw"></i> Myアカウント
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-sign-out-alt"></i> Log out
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="dropdown li_custom" style="min-width: 80px; text-align: center">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        日本語&nbsp;
+                        <i class="fa fa-globe"></i>&nbsp;<i class="fa fa-caret-down"></i>
+                    </a>
+
+                    <ul class="dropdown-menu dropdown-user">
+                        <li>
+                            <a href="#">
+                                English
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Tiếng Việt
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Italiano
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!--class="container-fluit"-->
+    <div class="page_custom" id="page-top" style="min-height: calc(100vh - 160px)">
+        <div id="content" class="content_review">
+            <div class="title_main">
+                <span>見積情報</span>
+            </div>
+            <div class="line"></div>
+            <div class="row_custom">
+                <div class="col-md-12">
+                    <table width="100%" class="" style="background-color: white">
+                        <tbody>
+                            <tr class="gradeA odd" role="row">
+                                <td class="td1_custom">見積番号</td>
+                                <td class="color_blue_black">
+                                    <div class="col_sum">
+                                        <b>XXXXXX</b>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="title_main">
+                <span>依頼者様情報</span>
+            </div>
+            <div class="line"></div>
+            <div class="row_custom">
+                <div class="col-md-12">
+                    <table width="100%" class="" style="background-color: white">
+                        <tbody>
+                            <tr class="gradeA odd" role="row">
+                                <td class="td1_custom">依頼者名</td>
+                                <td class="color_blue_black">
+                                    <div class="col_sum">
+                                        <b>山田 太郎</b>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="gradeA odd" role="row">
+                                <td class="td1_custom">電話番号</td>
+                                <td class="color_blue_black">
+                                    <div class="col_sum">
+                                        <b>03-4444-3333</b>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="gradeA odd" role="row">
+                                <td class="td1_custom">メールアドレス</td>
+                                <td class="color_blue_black">
+                                    <div class="col_sum">
+                                        <b>tester_cogai@infini.net</b>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="gradeA odd" role="row">
+                                <td class="td1_custom">CC</td>
+                                <td class="color_blue_black">
+                                    <div class="col_sum">
+                                        <b>tester_hermong@infini.net</b>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="title_main">
+                <span>旅程情報</span>
+            </div>
+            <div class="line"></div>
+            <div class="row_custom">
+                <div class="col-md-12">
+                    <table>
+                        <tbody>
+                            <tr class="gradeA odd" role="row">
+                                <td class="td1_header_custom" colspan="2">旅程情報①</td>
+                            </tr>
+                            <tr class="gradeA odd" role="row">
+                                <td class="td1_custom">乗継回数</td>
+                                <td class="color_blue_black">
+                                    <div class="col_sum">
+                                        <b>0 回</b>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="gradeA odd" role="row">
+                                <td class="td1_custom">航空会社/便名</td>
+                                <td class="color_blue_black">
+                                    <div class="col_sum">
+                                        <b>中国国際航空（エア チャイナ）CA422</b>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="gradeA odd" role="row">
+                                <td class="td1_custom">出発</td>
+                                <td class="color_blue_black">
+                                    <div class="col_sum">
+                                        <b>2019/03/29(金) 18:25 NRT 東京 (成田)</b>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="gradeA odd" role="row">
+                                <td class="td1_custom">到着</td>
+                                <td class="color_blue_black">
+                                    <div class="col_sum">
+                                        <b>2019/03/29(金) 18:20 JFK ニューヨーク (ジョン・F・ケネディ国際)</b>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table>
+                        <tbody>
+                            <tr class="gradeA odd" role="row">
+                                <td class="td1_header_custom bg_color_impotant" colspan="2">旅程情報②</td>
+                            </tr>
+                            <tr class="gradeA odd" role="row">
+                                <td class="td1_custom bg_color_impotant">乗継回数</td>
+                                <td class="color_blue_black">
+                                    <div class="col_sum">
+                                        <b>0 回</b>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="gradeA odd" role="row">
+                                <td class="td1_custom bg_color_impotant">航空会社/便名</td>
+                                <td class="color_blue_black">
+                                    <div class="col_sum">
+                                        <b>中国国際航空（エア チャイナ）CA422</b>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="gradeA odd" role="row">
+                                <td class="td1_custom bg_color_impotant">出発</td>
+                                <td class="color_blue_black">
+                                    <div class="col_sum">
+                                        <b>2019/03/29(金) 18:25 NRT 東京 (成田)</b>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="gradeA odd" role="row">
+                                <td class="td1_custom bg_color_impotant">到着</td>
+                                <td class="color_blue_black">
+                                    <div class="col_sum">
+                                        <b>2019/03/29(金) 18:20 JFK ニューヨーク (ジョン・F・ケネディ国際)</b>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table>
+                        <tbody>
+                            <tr class="gradeA odd" role="row">
+                                <td class="td1_header_custom" colspan="2">旅程情報③</td>
+                            </tr>
+                            <tr class="gradeA odd" role="row">
+                                <td class="td1_custom">乗継回数</td>
+                                <td class="color_blue_black">
+                                    <div class="col_sum">
+                                        <b>1 回</b>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="gradeA odd" role="row">
+                                <td class="td1_custom">航空会社/便名</td>
+                                <td class="color_blue_black">
+                                    <div class="col_sum">
+                                        <b>中国国際航空（エア チャイナ）CA422</b>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="gradeA odd" role="row">
+                                <td class="td1_custom">出発</td>
+                                <td class="color_blue_black">
+                                    <div class="col_sum">
+                                        <b>2019/03/29(金) 18:25 NRT 東京 (成田)</b>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="gradeA odd" role="row">
+                                <td class="td1_custom">到着</td>
+                                <td class="color_blue_black">
+                                    <div class="col_sum">
+                                        <b>2019/03/29(金) 18:20 JFK ニューヨーク (ジョン・F・ケネディ国際)</b>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="gradeA odd" role="row">
+                                <td class="td1_custom">航空会社/便名</td>
+                                <td class="color_blue_black">
+                                    <div class="col_sum">
+                                        <b>中国国際航空（エア チャイナ）CA422</b>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="gradeA odd" role="row">
+                                <td class="td1_custom">出発</td>
+                                <td class="color_blue_black">
+                                    <div class="col_sum">
+                                        <b>2019/03/29(金) 18:25 NRT 東京 (成田)</b>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="gradeA odd" role="row">
+                                <td class="td1_custom">到着</td>
+                                <td class="color_blue_black">
+                                    <div class="col_sum">
+                                        <b>2019/03/29(金) 18:20 JFK ニューヨーク (ジョン・F・ケネディ国際)</b>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+
+
+            <div class="title_main">
+                <span>出張者情報</span>
+            </div>
+            <div class="line"></div>
+            <div class="row_custom">
+                <div class="col-md-12">
+                    <table>
+                        <tbody>
+                            <tr class="gradeA odd" role="row">
+                                <td class="td1_custom">旅客人数</td>
+                                <td class="color_blue_black">
+                                    <div class="col_sum">
+                                        <div class="col_18_percent">
+                                            <label class="lbl_padding_10px" style="text-align: right">大人:</label>
+                                            <b>&nbsp;1&nbsp;&nbsp;</b>名
+                                        </div>
+                                        <div class="col_18_percent">
+                                            <label class="lbl_padding_10px" style="text-align: right">小児:</label>
+                                            <b>&nbsp;0&nbsp;&nbsp;</b>名
+                                        </div>
+                                        <div class="col_25_percent">
+                                            <label class="lbl_padding_10px">席あり幼児:</label>
+                                            <b>&nbsp;0&nbsp;&nbsp;</b>名
+                                        </div>
+                                        <div class="col_25_percent">
+                                            <label class="lbl_padding_10px">席なし幼児:</label>
+                                            <b>&nbsp;0&nbsp;&nbsp;</b>名
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                    </table>
+
+                    <table id="Adt_1">
+                        <tbody>
+
+                            <tr class="gradeA odd" role="row">
+                                <td class="td1_header_custom" colspan="4">大人①</td>
+                            </tr>
+
+                            <tr class="gradeA odd" role="row">
+                                <td class="td1_custom">氏名(漢字)</td>
+                                <td class="color_blue_black" colspan="3">
+                                    <div class="col_sum">
+                                        <b>山田 太郎</b>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="gradeA odd" role="row">
+                                <td class="td1_custom">氏名(英字)</td>
+                                <td class="color_blue_black" colspan="3">
+                                    <div class="col_sum">
+                                        <b>YAMADA TARO</b>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="gradeA odd" role="row">
+                                <td class="td1_custom">性別</td>
+                                <td class="color_blue_black" colspan="3">
+                                    <div class="col_sum">
+                                        <b>男性</b>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="gradeA odd" role="row">
+                                <td class="td1_custom">生年月日</td>
+                                <td class="color_blue_black" colspan="3">
+                                    <div class="col_sum">
+                                        <b>2000/04/05</b>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="gradeA odd" role="row">
+                                <td class="td1_custom">マイレージ</td>
+                                <td class="color_blue_black" colspan="3">
+                                    <div class="col_sum">
+                                        <b>123456789</b>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="gradeA odd" role="row">
+                                <td class="td1_custom">座席希望</td>
+                                <td class="color_blue_black">
+                                    <div class="col_sum">
+                                        <b>特になし</b>
+                                    </div>
+                                </td>
+                                <td class="td1_custom">
+                                    食事希望
+                                </td>
+                                <td class="color_blue_black">
+                                    <div class="col_sum">
+                                        <b>特になし</b>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="gradeA odd" role="row">
+                                <td class="td1_custom">パスポート番号</td>
+                                <td class="color_blue_black">
+                                    <div class="col_sum">
+                                        <b>123456789</b>
+                                    </div>
+                                </td>
+                                <td class="td1_custom">
+                                    有効期限
+                                </td>
+                                <td class="color_blue_black">
+                                    <div class="col_sum">
+                                        <b>2000/04/05</b>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="gradeA odd" role="row">
+                                <td class="td1_custom">国籍</td>
+                                <td class="color_blue_black">
+                                    <div class="col_sum">
+                                        <b>日本</b>
+                                    </div>
+                                </td>
+                                <td class="td1_custom">
+                                    発行国
+                                </td>
+                                <td class="color_blue_black">
+                                    <div class="col_sum">
+                                        <b>日本</b>
+                                    </div>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+
+            <div class="title_main">
+                <span>リクエスト情報</span>
+            </div>
+            <div class="line"></div>
+            <div class="row_custom">
+                <div class="col-md-12">
+                    <table width="100%">
+                        <tbody>
+                            <tr class="gradeA odd" role="row">
+                                <td class=" td1_custom">ご依頼内容</td>
+                                <td class="color_blue_black">
+                                    <div class="col_sum">
+                                        <b>その他</b>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="gradeA odd" role="row">
+                                <td class="td1_header_custom">優先条件</td>
+                                <td class="color_blue_black">
+                                    <div class="col_sum">
+                                        <b>航空会社</b>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="gradeA odd" role="row">
+                                <td class="td1_header_custom">クラス希望</td>
+                                <td class="color_blue_black">
+                                    <div class="col_sum">
+                                        <b>プレミアムエコノミー</b>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="gradeA odd" role="row">
+                                <td class="td1_header_custom">希望運賃</td>
+                                <td class="color_blue_black">
+                                    <div class="col_sum">
+                                        <b>条件優先</b> ( 変更可能 / 払戻可能 )
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="gradeA odd" role="row">
+                                <td class="td1_header_custom">その他リクエスト</td>
+                                <td class="color_blue_black">
+                                    <div class="col_sum">
+                                        <b>ホテル / レンタカー / 旅行保険</b>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="gradeA odd" role="row">
+                                <td class="td1_header_custom">リクエスト入力欄</td>
+                                <td class="color_blue_black">
+                                    <textarea class="textarea_custom" rows="10" maxlength="2000" readonly>
+4月
+ＮＨＫスペシャル シリーズ「教室の“声なき声”
+ＮＨＫスペシャル 「謎の天才仏師・運慶と快慶 ～最新科学で迫る “究極の美”～
+謎の天空遺跡 マチュピチュ大中継
+ＢＳ１スペシャル「驚異の進化！ ＡＩロボットの世界 ～実用化の最前線を旅する～
+スマホ見せてください！
+英雄たちの選択スペシャル「謎の砂漠都市 ペトラ～大国ローマと渡り合った秘密の鍵～
+==========================================================================================
+4月
+ＮＨＫスペシャル シリーズ「教室の“声なき声”」
+ＮＨＫスペシャル 「謎の天才仏師・運慶と快慶 ～最新科学で迫る “究極の美”～」
+謎の天空遺跡 マチュピチュ大中継
+ＢＳ１スペシャル「驚異の進化！ ＡＩロボットの世界 ～実用化の最前線を旅する～」
+スマホ見せてください！
+英雄たちの選択スペシャル「謎の砂漠都市 ペトラ～大国ローマと渡り合った秘密の鍵～」
+                                    </textarea>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div style="text-align: right; padding: 20px 20px 50px 20px">
+                <div class="col_sum" style="margin: right">
+                    <button type="button" class="btn btn-primary" style="width: 120px">戻る</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="sticky-footer bg-white" style="height: 48px;">
+        <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+                <span>Copyright © INFINI TRAVEL 2019</span>
+            </div>
+        </div>
+    </footer>
+
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fa fa-angle-up"></i>
+    </a>
+
+</body>
+
+</html>

@@ -1,0 +1,419 @@
+<div style="max-width: 1240px; margin: auto">
+	<div class="title_main">
+		<span>見積情報</span>
+	</div>
+	<div class="line"></div>
+	<div class="row_custom" xmlns:th="http://www.thymeleaf.org">
+		<div class="col-md-12">
+			<table class="" style="background-color: white; width: 100%">
+				<tbody>
+					<tr class="gradeA odd" role="row">
+						<td class="td1_custom">見積番号</td>
+						<td class="color_blue_black">
+							<div class="col_sum">
+								<b th:text="${requestItem.request_id}"></b>
+							</div>
+						</td>
+					</tr>
+					<tr class="gradeA odd" role="row">
+						<td class="td1_custom">旅行会社名</td>
+						<td class="color_blue_black">
+							<div class="col_sum">
+								<b th:text="${requestItem.requestor_phone}"></b>
+							</div>
+						</td>
+					</tr>
+					<tr class="gradeA odd" role="row">
+						<td class="td1_custom">企業名</td>
+						<td class="color_blue_black">
+							<div class="col_sum">
+								<b th:text="${requestItem.corporate_id.corporate_name}"></b>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="title_main">
+		<span>依頼者情報</span>
+	</div>
+	<div class="line"></div>
+	<div class="row_custom" xmlns:th="http://www.thymeleaf.org">
+		<div class="col-md-12">
+			<table class="" style="background-color: white; width: 100%">
+				<tbody>
+					<tr class="gradeA odd" role="row">
+						<td class="td1_custom">依頼者名</td>
+						<td class="color_blue_black">
+							<div class="col_sum">
+								<b th:text="${requestItem.requestor_name}"></b>
+							</div>
+						</td>
+					</tr>
+					<tr class="gradeA odd" role="row">
+						<td class="td1_custom">電話番号</td>
+						<td class="color_blue_black">
+							<div class="col_sum">
+								<b th:text="${requestItem.requestor_phone}"></b>
+							</div>
+						</td>
+					</tr>
+					<tr class="gradeA odd" role="row">
+						<td class="td1_custom">メールアドレス</td>
+						<td class="color_blue_black">
+							<div class="col_sum">
+								<b th:text="${requestItem.to}"></b>
+							</div>
+						</td>
+					</tr>
+					<tr class="gradeA odd" role="row">
+						<td class="td1_custom">CC</td>
+						<td class="color_blue_black">
+							<div class="col_sum">
+								<b th:text="${requestItem.cc}"></b>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="title_main">
+		<span>旅程情報</span>
+	</div>
+	<div class="line"></div>
+	<div class="row_custom" xmlns:th="http://www.thymeleaf.org">
+		<div class="col-md-12">
+			<table
+				th:each="listRequestFlight: ${listOfListRequestFlight}">
+				
+				<tbody 
+					th:with="indexOfFlight='旅程情報' + '<b class=\'numberOfCycle\' >' + '</b>',indexOfFlightImportant='旅程情報' + '<b class=\'numberOfCycle\' >' + '</b>' + '  優先希望 '">
+					<tr class="gradeA odd" role="row">
+						<td th:with="index=${indexOfFlight}"
+							th:class="@{td1_header_custom} + ${listRequestFlight.get(0).prefer_flight == 0 ? '' : ' bg_color_impotant'}"
+							colspan="2"><th:block
+								th:utext="${listRequestFlight.get(0).prefer_flight == 0 ? indexOfFlight : indexOfFlightImportant}"></th:block></td>
+					</tr>
+					<tr class="gradeA odd" role="row">
+						<td
+							th:class="@{td1_custom} + ${listRequestFlight.get(0).prefer_flight == 0 ? '' : ' bg_color_impotant'}">乗継回数</td>
+						<td class="color_blue_black">
+							<div class="col_sum">
+								<b class="transit" th:text="${listRequestFlight.size() - 1 + ' 回'}"></b>
+							</div>
+						</td>
+					</tr>
+					<th:block th:each="requestFlight: ${listRequestFlight}">
+					<tr class="gradeA odd" role="row">
+						<td
+							th:class="@{td1_custom} + ${requestFlight.prefer_flight==0 ? '' : ' bg_color_impotant'}">航空会社/便名</td>
+						<td class="color_blue_black">
+							<div class="col_sum">
+								<b><th:block th:each="mstCarier: ${listMstCarrier}"
+										th:if="${mstCarier != null}">
+										<th:block
+											th:if="${requestFlight.carrier == mstCarier.carrier_code}"
+											th:text="${mstCarier.carrier_name_jp}"></th:block>
+									</th:block> </b><b
+									th:text="'&ensp;&ensp;&ensp;' + ${requestFlight.carrier} + ${requestFlight.flight_number}"></b>
+							</div>
+						</td>
+					</tr>
+					<tr class="gradeA odd" role="row">
+						<td
+							th:class="@{td1_custom} + ${requestFlight.prefer_flight ==0 ? '' : ' bg_color_impotant'}">出発</td>
+						<td class="color_blue_black">
+							<div class="col_sum">
+								<b
+									th:text="${requestFlight.departure_date +'(' + requestFlight.dateWeeksFrom + ')'} + '&ensp;&ensp;'+ ${#strings.substring(requestFlight.departure_time,0,2)}+ ':' + ${#strings.substring(requestFlight.departure_time,2,4)} + '&ensp;&ensp;&ensp;&ensp;'+${requestFlight.departure_airport}+'&ensp;&ensp;'"></b>
+								<b><th:block th:each="mstAirport: ${listMstAirport}"
+										th:if="${mstAirport != null}">
+										<th:block
+											th:if="${requestFlight.departure_airport == mstAirport.airport_code}"
+											th:with="check = 'true'"
+											th:text="${mstAirport.airport_name_jp}"></th:block>
+									</th:block> </b>
+							</div>
+						</td>
+					</tr>
+					<tr class="gradeA odd" role="row">
+						<td
+							th:class="@{td1_custom} + ${requestFlight.prefer_flight == 0 ? '' : ' bg_color_impotant'}">到着</td>
+						<td class="color_blue_black">
+							<div class="col_sum">
+								<b
+									th:text="${requestFlight.arrival_date +'(' + requestFlight.dateWeeksTo + ')'} + '&ensp;&ensp;' + ${#strings.substring(requestFlight.arrival_time,0,2)} + ':' + ${#strings.substring(requestFlight.arrival_time,2,4)} + '&ensp;&ensp;&ensp;&ensp;' + ${requestFlight.arrival_airport} + '&ensp;&ensp;'"></b><b>
+									<th:block th:each="mstAirport:${listMstAirport}">
+										<th:block th:if="${mstAirport != null}" th:with="check='true'">
+											<th:block
+												th:if="${requestFlight.arrival_airport==mstAirport.airport_code}"
+												th:text="${mstAirport.airport_name_jp}"></th:block>
+										</th:block>
+										</th:block>
+								</b>
+							</div>
+						</td>
+					</tr>
+					</th:block>
+				</tbody>
+				
+				
+				<!-- phan connect -->
+				
+			</table>
+
+		</div>
+	</div>
+
+	<!-- phan khach hang moi -->
+	<div class="title_main">
+		<span>出張者情報</span>
+	</div>
+	<div class="line"></div>
+	<div class="row_custom" xmlns:th="http://www.thymeleaf.org">
+		<div class="col-md-12">
+			<table>
+				<tbody>
+					<tr class="gradeA odd" role="row">
+						<td class="td1_custom">旅客人数</td>
+						<td class="color_blue_black">
+							<div class="col_sum">
+								<div class="col_18_percent">
+									<label class="lbl_padding_10px" style="text-align: right">大人:</label>
+									<b th:text="'&nbsp;&nbsp;&nbsp;' + ${requestItem.num_of_adt}"></b>名
+								</div>
+								<div class="col_18_percent">
+									<label class="lbl_padding_10px" style="text-align: right">小児:</label>
+									<b th:text="${'   ' + requestItem.num_of_cnn}">&nbsp;0&nbsp;&nbsp;</b>名
+								</div>
+								<div class="col_25_percent">
+									<label class="lbl_padding_10px">席あり幼児:</label> <b
+										th:text="${'   ' + requestItem.num_of_ins}">&nbsp;0&nbsp;&nbsp;</b>名
+								</div>
+								<div class="col_25_percent">
+									<label class="lbl_padding_10px">席なし幼児:</label> <b
+										th:text="${'   ' + requestItem.num_of_inf}">&nbsp;0&nbsp;&nbsp;</b>名
+								</div>
+							</div>
+						</td>
+					</tr>
+			</table>
+
+			<table id="Adt_1"
+				th:each="requestPassenger: ${requestItem.listRequestPassenger}">
+				<tbody>
+					<tr class="gradeA odd" role="row">
+						<td class="td1_header_custom countIns" colspan="4"
+							th:if="${requestPassenger.passenger_type == 3 }" th:text="席あり幼児"></td>
+						<td class="td1_header_custom countInf" colspan="4"
+							th:if="${requestPassenger.passenger_type == 4 }" th:text="席なし幼児"></td>
+						<td class="td1_header_custom countCnn" colspan="4"
+							th:if="${requestPassenger.passenger_type == 2}" th:text="小児"></td>
+						<td class="td1_header_custom countAdult" colspan="4"
+							th:if="${requestPassenger.passenger_type == 1}" th:text="大人">
+					</tr>
+					<tr class="gradeA odd" role="row">
+						<td class="td1_custom">氏名(漢字)</td>
+						<td class="color_blue_black" colspan="3">
+							<div class="col_sum"
+								th:text="${requestPassenger.full_name_kanji}"></div>
+						</td>
+					</tr>
+					<tr class="gradeA odd" role="row">
+						<td class="td1_custom">氏名(英字)</td>
+						<td class="color_blue_black" colspan="3">
+							<div class="col_sum"
+								th:text="${requestPassenger.full_name_romaji}"></div>
+						</td>
+					</tr>
+					<tr class="gradeA odd" role="row">
+						<td class="td1_custom">性別</td>
+						<td class="color_blue_black" colspan="3">
+							<div class="col_sum"
+								th:text="${requestPassenger.gender == 'M' ? '男性':'女性'}"></div>
+						</td>
+					</tr>
+					<tr class="gradeA odd" role="row">
+						<td class="td1_custom">生年月日</td>
+						<td class="color_blue_black" colspan="3">
+							<div class="col_sum" th:text="${requestPassenger.date_of_birth}"></div>
+						</td>
+					</tr>
+
+					<tr class="gradeA odd" role="row">
+						<td class="td1_custom">マイレージ</td>
+						<td class="color_blue_black" colspan="3">
+							<div class="col_sum" th:text="${requestPassenger.mileage_number}"></div>
+						</td>
+					</tr>
+
+					<tr class="gradeA odd" role="row">
+						<td class="td1_custom">座席希望</td>
+						<td class="color_blue_black" style="width: 45%">
+							<div class="col_sum" th:switch="${requestPassenger.seat_request}">
+								<th:block th:case="'1'" th:text="特になし"></th:block>
+								<th:block th:case="'2'" th:text="窓側"></th:block>
+								<th:block th:case="'3'" th:text="通路側"></th:block>
+							</div>
+						</td>
+						<td class="td1_custom">食事希望</td>
+						<td class="color_blue_black"
+							th:switch="${requestPassenger.meal_reaquest}">
+							<div class="col_sum">
+								<th:block th:case="'1'" th:text="特にな"></th:block>
+								<th:block th:case="'2'">野菜職(乳製品、卵を含まない)</th:block>
+							</div>
+						</td>
+					</tr>
+
+					<tr class="gradeA odd" role="row">
+						<td class="td1_custom">パスポート番号</td>
+						<td class="color_blue_black">
+							<div class="col_sum"
+								th:text="${requestPassenger.passport_number}">123456789</div>
+						</td>
+						<td class="td1_custom">有効期限</td>
+						<td class="color_blue_black">
+							<div class="col_sum"
+								th:text="${requestPassenger.passport_valid_date}">2000/04/05</div>
+						</td>
+					</tr>
+
+					<tr class="gradeA odd" role="row">
+						<td class="td1_custom">国籍</td>
+						<td class="color_blue_black">
+							<div class="col_sum" th:text="${requestPassenger.nationality}">日本</div>
+						</td>
+						<td class="td1_custom">発行国</td>
+						<td class="color_blue_black">
+							<div class="col_sum" th:text="${requestPassenger.issued_country}">日本</div>
+						</td>
+					</tr>
+
+				</tbody>
+			</table>
+
+		</div>
+	</div>
+
+	<!-- phan detail -->
+	<div class="title_main">
+		<span>リクエスト情報</span>
+	</div>
+	<div class="line"></div>
+	<div class="row_custom" xmlns:th="http://www.thymeleaf.org">
+		<div class="col-md-12">
+			<table style="width:100%">
+				<tbody>
+					<tr class="gradeA odd" role="row">
+						<td class=" td1_custom">ご依頼内容</td>
+						<td class="color_blue_black"
+							th:switch="${requestItem.request_type}">
+							<div class="col_sum">
+								<b><th:block th:case="0" th:text="見積もり"></th:block> <th:block
+										th:case="1" th:text="予約"></th:block> <th:block th:case="9"
+										th:text="その他"></th:block></b>
+							</div>
+						</td>
+					</tr>
+
+					<tr class="gradeA odd" role="row">
+						<td class="td1_header_custom">優先条件</td>
+						<td class="color_blue_black">
+							<div class="col_sum" th:switch="${requestItem.prefer_condition}">
+								<b><th:block th:case="0" th:text="料金"></th:block> <th:block
+										th:case="1" th:text="日程"></th:block> <th:block th:case="2"
+										th:text="航空会社"></th:block> <th:block th:case="9"
+										th:text="特になし"></th:block></b>
+							</div>
+						</td>
+					</tr>
+
+					<tr class="gradeA odd" role="row">
+						<td class="td1_header_custom">クラス希望</td>
+						<td class="color_blue_black"
+							th:switch="${requestItem.prefer_class}">
+							<div class="col_sum">
+								<b><th:block th:case="0" th:text="特になし"></th:block> <th:block
+										th:case="1" th:text="最安運賃"></th:block> <th:block th:case="2"
+										th:text="条件優先"></b>
+							</div>
+						</td>
+					</tr>
+
+					<tr class="gradeA odd" role="row">
+						<td class="td1_header_custom">希望運賃</td>
+						<td class="color_blue_black"
+							th:switch="${requestItem.prefer_fare}">
+							<div class="col_sum">
+								<b><th:block th:case="0" th:text="特になし"></th:block> <th:block
+										th:case="1" th:text="最安運賃"></th:block> <th:block th:case="2"
+										th:text="条件優先"></th:block></b>
+							</div>
+						</td>
+					</tr>
+
+					<tr class="gradeA odd" role="row">
+						<td class="td1_header_custom">その他リクエスト</td>
+						<td class="color_blue_black">
+							<div class="col_sum">
+								<b th:text="${requestItem.other_request}">ホテル / レンタカー / 旅行保険</b>
+							</div>
+						</td>
+					</tr>
+					<tr class="gradeA odd" role="row">
+						<td class="td1_header_custom">リクエスト入力欄</td>
+						<td class="color_blue_black"><textarea
+								class="textarea_custom" rows="10" maxlength="2000" readonly
+								th:text="${requestItem.free_text}"></textarea></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div style="text-align: right; padding: 20px 20px 50px 20px"
+		xmlns:th="http://www.thymeleaf.org">
+		<div class="col_sum" style="margin: auto">
+			<a type="button" th:href="@{/inf_admin/history}"
+				class="btn btn-primary" style="width: 120px">戻る</a>
+		</div>
+	</div>
+</div>
+<script>
+	$(document).ready(function() {
+		$(".transitFlight").each(function() {
+			$(this).parent().find(".transit").text("1 回");
+		});
+	});
+</script>
+<script>
+	$(document).ready(function() {
+		i = 1;
+		$(".numberOfCycle").each(function() {
+			$(this).html("&#931" + (i + 1) + ";");
+            i++;
+		});
+		i = 1;
+		$(".countAdult").each(function() {
+			$(this).html("大人&#931" + (i + 1) + ";");
+			i++;
+		});
+		i = 1;
+		$(".countIns").each(function() {
+			$(this).html("大人&#931" + (i + 1) + ";");
+			i++;
+		});
+		i = 1;
+		$(".countInf").each(function() {
+			$(this).html("大人&#931" + (i + 1) + ";");
+			i++;
+		});
+		i = 1;
+		$(".countCnn").each(function() {
+			$(this).html("大人&#931" + (i + 1) + ";");
+			i++;
+		});
+	});
+</script>

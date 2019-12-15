@@ -1,0 +1,162 @@
+<soap-env:Envelope
+    xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:eb="http://www.ebxml.org/namespaces/messageHeader"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:xsd="http://www.w3.org/1999/XMLSchema">
+    <soap-env:Header>
+        <eb:MessageHeader
+            xmlns:eb="http://www.ebxml.org/namespaces/messageHeader">
+            <eb:From>
+                <eb:PartyId eb:type="urn:x12.org.IO5:01">infini.CalendarCache</eb:PartyId>
+            </eb:From>
+            <eb:To>
+                <eb:PartyId eb:type="urn:x12.org.IO5:01">webservices.sabre.com</eb:PartyId>
+            </eb:To>
+            <eb:ConversationId>0ed1fw79-7we9-4929-adeb-d7pi-wde7-93bb</eb:ConversationId>
+            <eb:Service eb:type="SabreXML">BargainFinderMax_ADRQ</eb:Service>
+            <eb:Action>BargainFinderMax_ADRQ</eb:Action>
+            <eb:MessageData>
+                <eb:MessageId>0ed1fw79-7we9-4929-adeb-d7pi-wde7-93bb</eb:MessageId>
+                <eb:Timestamp>2016-05-24T16:44:05</eb:Timestamp>
+            </eb:MessageData>
+        </eb:MessageHeader>
+        <wsse:Security
+            xmlns:wsu="http://schemas.xmlsoap.org/ws/2002/12/utility"
+            xmlns:wsse="http://schemas.xmlsoap.org/ws/2002/12/secext">
+            {{binary_security_token}}
+        </wsse:Security>
+    </soap-env:Header>
+    <soap-env:Body>
+        <OTA_AirLowFareSearchRQ Version="5.1.0"
+            xmlns="http://www.opentravel.org/OTA/2003/05" ResponseType="GIR" ResponseVersion="5.1.0" AvailableFlightsOnly="true">
+            <POS>
+                <Source PseudoCityCode="{{pseudo_city_code}}">
+                    <RequestorID ID="1" Type="1">
+                        <CompanyName Code="TN">TN</CompanyName>
+                    </RequestorID>
+                </Source>
+            </POS>
+            <OriginDestinationInformation RPH="1">
+                <DepartureDates>
+                    <DaysRange FromDate="{{outbound_date_from}}" ToDate="{{outbound_date_to}}" />
+                </DepartureDates>
+                <DepartureWindow>{{outbound_time_from}}{{outbound_time_to}}</DepartureWindow>
+                <OriginLocation LocationCode="{{departure_airport}}" />
+                <DestinationLocation LocationCode="{{arrival_airport}}" />
+                <TPA_Extensions />
+            </OriginDestinationInformation>
+            <OriginDestinationInformation RPH="2">
+                <DepartureDates>
+                    <LengthOfStay Days="{{stay_day}}"/>
+                </DepartureDates>
+                <DepartureWindow>{{inbound_time_from}}{{inbound_time_to}}</DepartureWindow>
+                <OriginLocation LocationCode="{{arrival_airport}}" />
+                <DestinationLocation LocationCode="{{departure_airport}}" />
+                <TPA_Extensions />
+            </OriginDestinationInformation>
+            <TravelPreferences ValidInterlineTicket="true">
+                <VendorPref Code="3G" PreferLevel="Unacceptable" />
+                <VendorPref Code="3K" PreferLevel="Unacceptable" />
+                <VendorPref Code="3U" PreferLevel="Unacceptable" />
+                <VendorPref Code="4U" PreferLevel="Unacceptable" />
+                <VendorPref Code="5J" PreferLevel="Unacceptable" />
+                <VendorPref Code="5Q" PreferLevel="Unacceptable" />
+                <VendorPref Code="7N" PreferLevel="Unacceptable" />
+                <VendorPref Code="9C" PreferLevel="Unacceptable" />
+                <VendorPref Code="A3" PreferLevel="Unacceptable" />
+                <VendorPref Code="AB" PreferLevel="Unacceptable" />
+                <VendorPref Code="AT" PreferLevel="Unacceptable" />
+                <VendorPref Code="BE" PreferLevel="Unacceptable" />
+                <VendorPref Code="BL" PreferLevel="Unacceptable" />
+                <VendorPref Code="BM" PreferLevel="Unacceptable" />
+                <VendorPref Code="BT" PreferLevel="Unacceptable" />
+                <VendorPref Code="BU" PreferLevel="Unacceptable" />
+                <VendorPref Code="BW" PreferLevel="Unacceptable" />
+                <VendorPref Code="D6" PreferLevel="Unacceptable" />
+                <VendorPref Code="D7" PreferLevel="Unacceptable" />
+                <VendorPref Code="EC" PreferLevel="Unacceptable" />
+                <VendorPref Code="EN" PreferLevel="Unacceptable" />
+                <VendorPref Code="FR" PreferLevel="Unacceptable" />
+                <VendorPref Code="GK" PreferLevel="Unacceptable" />
+                <VendorPref Code="H1" PreferLevel="Unacceptable" />
+                <VendorPref Code="HR" PreferLevel="Unacceptable" />
+                <VendorPref Code="HY" PreferLevel="Unacceptable" />
+                <VendorPref Code="HZ" PreferLevel="Unacceptable" />
+                <VendorPref Code="I5" PreferLevel="Unacceptable" />
+                <VendorPref Code="I9" PreferLevel="Unacceptable" />
+                <VendorPref Code="IJ" PreferLevel="Unacceptable" />
+                <VendorPref Code="IR" PreferLevel="Unacceptable" />
+                <VendorPref Code="IT" PreferLevel="Unacceptable" />
+                <VendorPref Code="JF" PreferLevel="Unacceptable" />
+                <VendorPref Code="JN" PreferLevel="Unacceptable" />
+                <VendorPref Code="JQ" PreferLevel="Unacceptable" />
+                <VendorPref Code="JW" PreferLevel="Unacceptable" />
+                <VendorPref Code="K2" PreferLevel="Unacceptable" />
+                <VendorPref Code="LG" PreferLevel="Unacceptable" />
+                <VendorPref Code="LT" PreferLevel="Unacceptable" />
+                <VendorPref Code="M5" PreferLevel="Unacceptable" />
+                <VendorPref Code="MM" PreferLevel="Unacceptable" />
+                <VendorPref Code="NG" PreferLevel="Unacceptable" />
+                <VendorPref Code="OU" PreferLevel="Unacceptable" />
+                <VendorPref Code="PC" PreferLevel="Unacceptable" />
+                <VendorPref Code="Q9" PreferLevel="Unacceptable" />
+                <VendorPref Code="R3" PreferLevel="Unacceptable" />
+                <VendorPref Code="RJ" PreferLevel="Unacceptable" />
+                <VendorPref Code="RO" PreferLevel="Unacceptable" />
+                <VendorPref Code="RV" PreferLevel="Unacceptable" />
+                <VendorPref Code="SB" PreferLevel="Unacceptable" />
+                <VendorPref Code="SI" PreferLevel="Unacceptable" />
+                <VendorPref Code="SV" PreferLevel="Unacceptable" />
+                <VendorPref Code="SX" PreferLevel="Unacceptable" />
+                <VendorPref Code="TF" PreferLevel="Unacceptable" />
+                <VendorPref Code="TM" PreferLevel="Unacceptable" />
+                <VendorPref Code="TU" PreferLevel="Unacceptable" />
+                <VendorPref Code="U6" PreferLevel="Unacceptable" />
+                <VendorPref Code="U7" PreferLevel="Unacceptable" />
+                <VendorPref Code="U8" PreferLevel="Unacceptable" />
+                <VendorPref Code="UN" PreferLevel="Unacceptable" />
+                <VendorPref Code="UU" PreferLevel="Unacceptable" />
+                <VendorPref Code="UX" PreferLevel="Unacceptable" />
+                <VendorPref Code="VG" PreferLevel="Unacceptable" />
+                <VendorPref Code="VJ" PreferLevel="Unacceptable" />
+                <VendorPref Code="VK" PreferLevel="Unacceptable" />
+                <VendorPref Code="VX" PreferLevel="Unacceptable" />
+                <VendorPref Code="VY" PreferLevel="Unacceptable" />
+                <VendorPref Code="WX" PreferLevel="Unacceptable" />
+                <VendorPref Code="XJ" PreferLevel="Unacceptable" />
+                <VendorPref Code="ZC" PreferLevel="Unacceptable" />
+                <VendorPref Code="ZK" PreferLevel="Unacceptable" />
+                <VendorPref Code="{{carrier}}" PreferLevel="Only" Type="Operating" />
+                <FlightTypePref MaxConnections="{{stops}}" />
+                <CabinPref PreferLevel="Preferred" Cabin="{{cabin}}" />
+                <TPA_Extensions>
+                    <XOFares Value="true" />
+                    <JumpCabinLogic Disabled="true" />
+                    <KeepSameCabin Enabled="true" />
+                    <ExcludeCallDirectCarriers Enabled="{{exclude_codeshare}}" />
+                </TPA_Extensions>
+                <Baggage RequestType="C" Description="true" FreePieceRequired="{{free_piece}}"/>
+            </TravelPreferences>
+            <TravelerInfoSummary>
+                <SeatsRequested>{{seat}}</SeatsRequested>
+                <AirTravelerAvail>
+                    {{num_of_adt}}
+                    {{num_of_cnn}}
+                    {{num_of_ins}}
+                    {{num_of_inf}}
+                </AirTravelerAvail>
+                <PriceRequestInformation>
+                    <TPA_Extensions>
+                        <PublicFare Ind="true" />
+                    </TPA_Extensions>
+                </PriceRequestInformation>
+            </TravelerInfoSummary>
+            <TPA_Extensions>
+                <IntelliSellTransaction>
+                    <RequestType Name="AD7" />
+                    <CompressResponse Value="true" />
+                </IntelliSellTransaction>
+            </TPA_Extensions>
+        </OTA_AirLowFareSearchRQ>
+    </soap-env:Body>
+</soap-env:Envelope>

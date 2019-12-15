@@ -1,0 +1,36 @@
+<soap-env:Envelope
+    xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:eb="http://www.ebxml.org/namespaces/messageHeader"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:xsd="http://www.w3.org/1999/XMLSchema">
+    <soap-env:Header>
+        <eb:MessageHeader
+            xmlns:eb="http://www.ebxml.org/namespaces/messageHeader">
+            <eb:From>
+                <eb:PartyId eb:type="urn:x12.org.IO5:01">infini.CalendarCache</eb:PartyId>
+            </eb:From>
+            <eb:To>
+                <eb:PartyId eb:type="urn:x12.org.IO5:01">webservices.sabre.com</eb:PartyId>
+            </eb:To>
+            <eb:ConversationId>0ed1fw79-7we9-4929-adeb-d7pi-wde7-93bb</eb:ConversationId>
+            <eb:Service eb:type="SabreXML">SessionCloseRQ</eb:Service>
+            <eb:Action>SessionCloseRQ</eb:Action>
+            <eb:MessageData>
+                <eb:MessageId>0ed1fw79-7we9-4929-adeb-d7pi-wde7-93bb</eb:MessageId>
+                <eb:Timestamp>2016-05-24T16:44:05</eb:Timestamp>
+            </eb:MessageData>
+        </eb:MessageHeader>
+        <wsse:Security
+            xmlns:wsu="http://schemas.xmlsoap.org/ws/2002/12/utility"
+            xmlns:wsse="http://schemas.xmlsoap.org/ws/2002/12/secext">
+            {{binary_security_token}}
+        </wsse:Security>
+    </soap-env:Header>
+    <soap-env:Body>
+        <SessionCloseRQ>
+			<POS>
+				<Source PseudoCityCode="{{pseudo_city_code}}"/>
+			</POS>
+		</SessionCloseRQ>
+    </soap-env:Body>
+</soap-env:Envelope>

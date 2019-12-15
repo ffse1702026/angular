@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="X-UA-Compatible" content="IE=11">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="stylesheet" type="text/css" href="/css/custom-css.css">
+<!-- Jquery Core JS, CSS -->
+<link href="/jquery/jquery-ui.css" rel="stylesheet">
+<!-- Bootstrap Core CSS -->
+<link href="/bootstrap/vendor/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet">
+
+<!-- MetisMenu CSS -->
+<link href="/bootstrap/vendor/metisMenu/metisMenu.min.css"
+	rel="stylesheet">
+
+<!-- Custom CSS -->
+<link href="/bootstrap/dist/css/sb-admin-2.css" rel="stylesheet">
+
+<!-- Custom Fonts -->
+<link href="/bootstrap/vendor/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css">
+
+<!-- jQuery -->
+<script src="/bootstrap/vendor/jquery/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="/bootstrap/vendor/metisMenu/metisMenu.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/bootstrap/dist/js/sb-admin-2.js"></script>
+
+<!-- Fontawesome -->
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+
+<style>
+.ui-autocomplete {
+	max-height: 400px;
+	overflow-y: auto;
+	/* prevent horizontal scrollbar */
+	overflow-x: hidden;
+	min-width: 300px; 
+}
+/* IE 6 doesn't support max-height
+   * we use height instead, but this forces the menu to always be this tall
+   */
+* html .ui-autocomplete {
+	height: 100px;
+}
+
+.result-toggle-icon, .result-add-icon {
+	display: inline-block;
+}
+
+.margin-1em {
+	margin: 1em;
+}
+
+.margin-left-1em {
+	margin-left: 1em;
+}
+
+.w250 {
+	min-width: 250px !important;
+}
+</style>
+</head>
+
+<body id="page-top">
+	<!-- Default inline 1-->
+	<nav class="navbar navbar-default navbar-static-top" id="menu"
+		role="navigation" style="height: auto; margin-bottom: 0px;">
+		<div class="navbar-header">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#"><b>AGT/企業ロゴ</b></a>
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					onclick="menu_show_hide()" data-target=".navbar-collapse">
+					<span class="sr-only"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span>
+				</button>
+			</div>
+		</div>
+		<div id="menu-container" style="position: absolute; width: 500px;"></div>
+		<div class="header_btn_left" id="header_btn_left">
+			<ul
+				class="nav navbar-top-links navbar-collapse navbar-left sidebar-nav navbar-collapse navbar-default"
+				id="side-menu" role="navigation">
+				<li class="dropdown li_custom"><a class="dropdown-toggle"
+					data-toggle="dropdown" href="#"> &nbsp;見積依頼&nbsp;<i
+						class="fa fa-shopping-cart"></i>&nbsp;
+				</a></li>
+				<li class="divider"></li>
+				<li class="dropdown li_custom"><a class="dropdown-toggle"
+					data-toggle="dropdown" href="#"> &nbsp;見積履歴&nbsp; <i
+						class="fa fa-bar-chart-o fa-fw"></i> &nbsp;
+				</a></li>
+
+			</ul>
+		</div>
+		<div class="header_btn_right">
+			<ul class="nav navbar-top-links navbar-right">
+				<li class="dropdown li_custom"
+					style="min-width: 80px; text-align: center"><a
+					class="dropdown-toggle" data-toggle="dropdown" href="#"> <span
+						class="show_w_min_1042">LuvinaTest会社 RyuKamiKirena様 &nbsp;</span><i
+						class="fa fa-user"></i>&nbsp;<i class="fa fa-caret-down"></i>
+				</a>
+
+					<ul class="dropdown-menu dropdown-user">
+						<li><a href="#"> <i class="fa fa-user fa-fw"></i> Myアカウント
+						</a></li>
+						<li class="divider"></li>
+						<li><a href="#"> <i class="fas fa-sign-out-alt"></i> Log
+								out
+						</a></li>
+					</ul></li>
+
+				<li class="dropdown li_custom"
+					style="min-width: 80px; text-align: center"><a
+					class="dropdown-toggle" data-toggle="dropdown" href="#">
+						日本語&nbsp; <i class="fa fa-globe"></i>&nbsp;<i
+						class="fa fa-caret-down"></i>
+				</a>
+
+					<ul class="dropdown-menu dropdown-user">
+						<li><a href="#"> English </a></li>
+						<li><a href="#"> Tiếng Việt </a></li>
+						<li><a href="#"> Italiano </a></li>
+					</ul></li>
+			</ul>
+		</div>
+	</nav>
+
+
+	<div class="background_image">
+		<!--class="background_image"-->
+		<!-- Page Content -->
+		<div class="page_custom" style="min-height: calc(100vh - 60px)">
+			<!-- START Form Search Content -->
+			<div class="search-box-forms" id="flightSearchBox">
+				<form action="03_見積依頼_検索結果一覧.html" method="post">
+					<!-- Variable hidden save data when choose pulldown search  Content -->
+					<input id="inf-flight-way" name="FlightWay" type="hidden" value="D">
+					<input id="inf-transfer-type" name="Transfer_Type" type="hidden"
+						value="-1"> <input id="inf-today" name="today"
+						type="hidden" value=""> <input id="inf-dcity-code"
+						name="DCity" type="hidden" value="HAN,,"> <input
+						id="inf-dcity-name" name="DCityName" type="hidden" value="hanoi">
+					<input id="inf-acity-code" name="ACity" type="hidden"
+						value="DAD,,0,7"> <input id="inf-acity-name"
+						name="ACityName" type="hidden" value="Da Nang"> <input
+						id="inf-seat-class" name="DSeatSelect" type="hidden" value="">
+
+					<div class="inf-search-city">
+						<div class="search-box">
+							<div class="inf-field-group inf-group-route">
+								<div class="inf-item-con inf-field-from">
+									<div class="inf-field-item">
+										<input class="inf-input-from" placeholder="出発地" type="text"
+											name="DepartureCity" id="inf-depart-city-input"
+											autocomplete="on">
+									</div>
+								</div>
+								<div class="inf-swap" onclick="changeDepartArrival()">
+									<span id="inf-switch-btn"><i class="fas fa-exchange-alt"
+										style="vertical-align: middle;"></i></span>
+								</div>
+								<div class="inf-item-con inf-field-to">
+									<input class="inf-input-to" placeholder="到着地" type="text"
+										name="ArrivalCity" id="inf-arrival-city-input"
+										autocomplete="on">
+								</div>
+
+							</div>
+
+							<div class="inf-field-group inf-group-date">
+								<div class="inf-item-con inf-field-depart">
+									<div class="inf-field-item">
+										<div class="radio-switch">
+											<div class="firt_radio">
+												<label class="radiobox-label">出発 <input type="radio"
+													checked="checked" name="radio"> <span
+													class="radiobox__box"></span>
+												</label>
+											</div>
+											<div class="second_radio">
+												<label class="radiobox-label">到着 <input type="radio"
+													name="radio"> <span class="radiobox__box"></span>
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="inf-item-con inf-field-return">
+									<div class="inf-field-item">
+										<input class="inf-input-date" type="text" id="inf-date-input"
+											readonly="readonly">
+
+									</div>
+								</div>
+								<div class="inf-item-con inf-field-time">
+									<div class="option-date">
+										<select class="form-custom-control-date2">
+											<option value="0" selected>指定なし</option>
+											<option value="1">早朝(04:00-06:59)</option>
+											<option value="2">午前(07:00-11:59)</option>
+											<option value="3">午後(12:00-21:59)</option>
+											<option value="4">夜間(22:00-03:59)</option>
+											<option value="5">00:00</option>
+											<option value="6">01:00</option>
+											<option value="7">02:00</option>
+											<option value="7">03:00</option>
+											<option value="9">04:00</option>
+											<option value="10">05:00</option>
+											<option value="11">06:00</option>
+											<option value="12">07:00</option>
+											<option value="13">08:00</option>
+											<option value="14">09:00</option>
+											<option value="15">10:00</option>
+											<option value="16">11:00</option>
+											<option value="17">12:00</option>
+											<option value="18">13:00</option>
+											<option value="19">14:00</option>
+											<option value="20">15:00</option>
+											<option value="21">16:00</option>
+											<option value="22">17:00</option>
+											<option value="23">18:00</option>
+											<option value="24">19:00</option>
+											<option value="25">20:00</option>
+											<option value="26">21:00</option>
+											<option value="27">22:00</option>
+											<option value="28">23:00</option>
+
+
+										</select>
+									</div>
+
+								</div>
+
+							</div>
+
+							<div id="showsearch">
+								<div class="inf-search-more-info">
+
+
+									<div class="airline-designation-label float-left">
+										<label class="infor-search-data custom-color-label">航空会社指定
+										</label>
+									</div>
+									<div class="airline-designation-pulldown float-left">
+										<div class="select-custom">
+											<input id="airline1" class="form-custom-control" type="text">
+										</div>
+										<div class="select-custom">
+											<input id="airline2" class="form-custom-control" type="text">
+										</div>
+										<div class="select-custom">
+											<input id="airline3" class="form-custom-control" type="text">
+										</div>
+									</div>
+									<div class="airline-designation-checkbox float-left">
+										<label class="checkbox-inline custom-color-label"> <input
+											class="form-check-input" type="checkbox">日系航空会社指定
+										</label>
+									</div>
+
+								</div>
+
+
+								<div class="inf-search-more-info2">
+
+
+									<div class="airline-designation-label float-left">
+
+										<label class="infor-search-data custom-color-label">アライアンス指定</label>
+
+									</div>
+									<div class="airline-designation-pulldown float-left">
+										<div class="select-custom">
+											<select class="form-custom-control">
+												<option value="" selected="">指定なし</option>
+												<option value="1">スターアライアンス</option>
+												<option value="2">ワンワールド</option>
+												<option value="3">スカイチーム</option>
+											</select>
+										</div>
+									</div>
+									<div class="airline-designation-checkbox float-left">
+										<label class="checkbox-inline custom-color-label"><input
+											class="form-check-input" type="checkbox">直行便指定 </label>
+									</div>
+
+								</div>
+
+							</div>
+						</div>
+
+						<div class="inf-action">
+							<button class="inf-btn-search" id="searchBtn">検 索</button>
+							<br> <label class="option-show-hiden text_center"
+								style="width: 100%; color: #fff"> オプション</label>
+						</div>
+					</div>
+				</form>
+
+			</div>
+
+			<!-- END Form Search Content -->
+			<div class="main-content">
+				<div class="notice-flight" style="height: 300px;">
+					<ul class="main-list-li">
+						<i class="fa fa-paper-plane" aria-hidden="true"></i> &nbsp;お知らせ
+						<li>年末の営業は12月29日までです。</li>
+					</ul>
+				</div>
+			</div>
+			<!-- /background_image -->
+		</div>
+
+		<footer class="sticky-footer bg-white"
+			style="height: 64px; padding-top: 20px;">
+			<div class="container my-auto">
+				<div class="copyright text-center my-auto">
+					<span>Copyright © INFINI TRAVEL 2019</span>
+				</div>
+			</div>
+		</footer>
+
+
+		<script src="/jquery/jquery.js"></script>
+		<script src="/jquery/jquery-ui.js"></script>
+		<script src="/js/customjs.js"></script>
+	</div>
+
+
+
+</body>
+
+</html>

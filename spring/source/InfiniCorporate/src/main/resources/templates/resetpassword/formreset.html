@@ -1,0 +1,90 @@
+<form action="/inf_admin/agent/resetPassword" method="post"
+	enctype="multipart/form-data" th:object="${userSecretQuestion}"
+	xmlns:th="http://www.thymeleaf.org">
+	<div class="panel panel-primary "
+		style="margin-right: 0.5em; margin-top: 20px">
+		<div class="panel-body">
+			<div class="tab-content clearfix">
+				<div class="tab-pane active" id="1b">
+					<div class="row_custom">
+						<div class="col-md-12">
+							<table id="a_custom_table" width="100%" class="a_margin_left_50"
+								style="background-color: white; border: 0px;">
+								<tbody>
+									<tr>
+										<td><input type="hidden" th:field="*{agent_id}" /></td>
+										<td><input type="hidden" th:field="*{corporate_id}"  /></td>
+									</tr>
+									<tr class="gradeA odd" role="row">
+										<td class="a_td1_custom">新しいパスワード<span style="color: red">&nbsp;*</span><span>&nbsp;:</span></td>
+										<td class="color_blue_black">
+											<div class="col_sum">
+												<input type="password" maxlength="15" class="a_w_280 txt"
+													required="required" name="password"> <span
+													class="lbl_14_px">&nbsp; &nbsp;</span>
+											</div>
+										</td>
+									</tr>
+									<tr class="gradeA odd" role="row">
+										<td class="a_td1_custom">新しいパスワード(再入力)<span
+											style="color: red">&nbsp;</span><span>&nbsp;:</span></td>
+										<td class="color_blue_black">
+											<div class="col_sum">
+												<input type="password" maxlength="15" class="a_w_280 txt"
+													required="required" name="repassword"> <span
+													class="lbl_14_px">&nbsp; &nbsp;</span>
+											</div>
+										</td>
+									</tr>
+									<tr class="gradeA odd" role="row">
+										<td class="a_td1_custom">秘密の質問<span style="color: red">&nbsp;</span><span></span>
+										</td>
+										<td class="color_blue_black">
+											<div class="col_sum">
+												<select class="a_w_600 txt" style="height: 23px;"
+													th:field="*{question_id}">
+													<option th:value="${question.id}"
+														th:each="question : ${listMstQuestion}"
+														th:text="${question.question_content_jp}"></option>
+												</select>
+											</div>
+										</td>
+									</tr>
+									<tr class="gradeA odd" role="row">
+										<td class="a_td1_custom">答え<span>&nbsp;:</span></td>
+										<td class="color_blue_black">
+											<div class="col_sum">
+												<input type="text" maxlength="1000" class="a_w_600 txt"
+													th:field="*{answer}" required>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div style="text-align: center;">
+					<div class="col_sum" style="margin: auto; margin-left: 220px">
+						<button type="submit" href="#" class="btn btn-primary"
+							style="width: 120px; float: left;">新規追加</button>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-10">
+            <div  class="alert alert-danger" th:if="${messageError != null}">
+                <ul th:each="error :${listError}" th:if="${listError!=null}">
+                    <li th:text="${error.getDefaultMessage()}"></li>
+                </ul>
+                <ul th:each="error :${listErrorPass}" th:if="${listErrorPass!=null}" >
+                    <li th:text="${error}"></li>
+                </ul>
+            </div>
+        </div>
+		</div>
+		
+	</div>
+</form>
+

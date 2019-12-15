@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>List Student</title>
+<style>
+table, th, td {
+	border: 1px solid black;
+}
+</style>
+</head>
+<body>
+<form action="#"  th:action="${action == 'create'} ?@{/student/create}: @{/student/update}" th:object="${student}" method="post">
+	<input type="hidden" th:field="*{id}" /> 
+	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /><br/>
+	<input type="text" th:field="*{name}" placeholder="your name"/><br/>
+	<input type="text" th:field="*{address}" placeholder="address" /><br/>
+	<input type="number" th:field="*{age}" placeholder="your age" /><br/>
+	<input type="email" th:field="*{email}" placeholder="your email" /><br/>
+	<input type="submit" th:value ="${action == 'create'} ?create:update" />
+</form>
+</body>

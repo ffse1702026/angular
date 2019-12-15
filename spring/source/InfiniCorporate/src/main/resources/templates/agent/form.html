@@ -1,0 +1,113 @@
+<form
+	th:action="${action == 'create'} ?@{/inf_admin/agent/setting}: @{/inf_admin/agent/update}"
+	th:object="${userAgent}" method="post" enctype="multipart/form-data"
+	xmlns:th="http://www.thymeleaf.org">
+	<div class="tab-content clearfix">
+		<div class="tab-pane active" id="1b">
+			<div class="row_custom">
+				<div class="col-md-12">
+					<table id="a_custom_table" width="100%" class="a_margin_left_50"
+						style="background-color: white; border: 0px;">
+						<tbody>
+							<tr class="gradeA odd" role="row">
+								<td class="a_td1_custom">旅行会社名<span style="color: red">&nbsp;*</span><span>&nbsp;:</span></td>
+								<td class="color_blue_black">
+									<div class="col_sum">
+										<input type="text" maxlength="50" class="a_w_600 txt"
+											th:field="*{agent_name}" required="required">
+									</div>
+								</td>
+							</tr>
+							<tr class="gradeA odd" role="row">
+								<td class="a_td1_custom">店舗名<span style="color: red">&nbsp;*</span><span>&nbsp;:</span></td>
+								<td class="color_blue_black">
+									<div class="col_sum">
+										<input type="text" maxlength="50" class="a_w_600 txt"
+											th:field="*{store_name}" required="required">
+									</div>
+								</td>
+							</tr>
+							<tr class="gradeA odd" role="row">
+								<td class="a_td1_custom">ID<span style="color: red">&nbsp;*</span><span>&nbsp;:</span></td>
+								<td class="color_blue_black">
+									<div class="col_sum">
+										<input type="text" maxlength="15" class="a_w_150 txt"
+											th:field="*{agent_id}" required="required"
+											th:readonly="${action=='update'?'readonly':'false'}">
+									</div>
+								</td>
+							</tr>
+							<tr class="gradeA odd" role="row">
+								<td class="a_td1_custom">PCC<span style="color: red">&nbsp;*</span><span>&nbsp;:</span></td>
+								<td class="color_blue_black">
+									<div class="col_sum">
+										<input type="text" maxlength="15" class="a_w_150 txt"
+											th:field="*{pcc}" required="required">
+									</div>
+								</td>
+							</tr>
+							<tr class="gradeA odd" role="row">
+								<td class="a_td1_custom">メールアドレス<span style="color: red">&nbsp;*</span><span>&nbsp;:</span>
+								</td>
+								<td class="color_blue_black">
+									<div class="col_sum">
+										<input type="email" maxlength="150" class="a_w_600 txt"
+											th:field="*{mail_address}" required="required">
+									</div>
+								</td>
+							</tr>
+							<tr class="gradeA odd" role="row">
+								<td class="a_td1_custom">アカウントステイタス<span>&nbsp;:</span></td>
+								<td class="color_blue_black">
+									<div class="col_sum">
+										<label style="cursor: pointer;"><input type="radio"
+											name="account_status" checked>有効</label> <span>&nbsp;</span>
+										<label style="cursor: pointer;"> <input type="radio"
+											name="account_status">無効
+										</label>
+									</div>
+								</td>
+							</tr>
+							<!--Phase2-->
+							<tr class="gradeA odd" role="row" style="display: none">
+								<td class="a_td1_custom">ログイン機能<span>&nbsp;:</span></td>
+								<td class="color_blue_black">
+									<div class="col_sum">
+										<label style="cursor: pointer;"><input type="radio"
+											th:field="*{delete_flg}" value="0" checked="checked">有効</label>
+										<span>&nbsp;</span> <label style="cursor: pointer;"> <input
+											type="radio" th:field="*{delete_flg}" value="1">無効
+										</label>
+									</div>
+								</td>
+							</tr>
+							<!--Phase2-->
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-10">
+		<div th:if="${messageError!=null}" class="alert alert-danger">
+			<ul th:each="error :${listError}">
+				<li th:text="${error.getDefaultMessage()}"></li>
+			</ul>
+		</div>
+	</div>
+	<div class="col-md-12">
+
+		<div style="text-align: center;">
+			<div class="col_sum" style="margin: auto">
+				<button type="submit" class="btn btn-primary"
+					style="width: 120px; float: left;">追加・変更</button>
+				<a type="button" th:href="@{/inf_admin/agent}"
+					class="btn btn-primary" style="width: 120px; float: right;">戻る</a>
+			</div>
+		</div>
+	</div>
+</form>
+
+
+
+

@@ -1,0 +1,1677 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="X-UA-Compatible" content="IE=11">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<!-- Jquery Core JS, CSS -->
+	<link href="jquery/jquery-ui.css" rel="stylesheet">
+	<!-- Custom Style -->
+	<link rel="stylesheet" type="text/css" href="css/custom-css.css">
+
+	<!-- Bootstrap Core CSS -->
+	<link href="bootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- MetisMenu CSS -->
+	<link href="bootstrap/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link href="bootstrap/dist/css/sb-admin-2.css" rel="stylesheet">
+
+	<!-- Custom Fonts -->
+	<link href="bootstrap/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+	<!-- jQuery -->
+	<script src="bootstrap/vendor/jquery/jquery.min.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+	<!-- Metis Menu Plugin JavaScript -->
+	<script src="bootstrap/vendor/metisMenu/metisMenu.min.js"></script>
+
+	<!-- Custom Theme JavaScript -->
+	<script src="bootstrap/dist/js/sb-admin-2.js"></script>
+
+	<!-- Fontawesome -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+</head>
+
+<body id="page-top">
+	<!-- header cusstom  -->
+	<nav class="navbar navbar-default navbar-static-top" id="menu" role="navigation" style="height: auto">
+		<div class="navbar-header">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#"><b>AGT/企業ロゴ</b></a>
+				<button type="button" class="navbar-toggle" data-toggle="collapse" onclick="menu_show_hide()"
+					data-target=".navbar-collapse">
+					<span class="sr-only"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+		</div>
+		<div class="header_btn_left" id="header_btn_left">
+			<ul class="nav navbar-top-links navbar-collapse navbar-left sidebar-nav navbar-collapse navbar-default"
+				id="side-menu" role="navigation">
+				<li class="dropdown li_custom">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+						&nbsp;見積依頼&nbsp;<i class="fa fa-shopping-cart"></i>&nbsp;
+					</a>
+				</li>
+				<li class="divider"></li>
+				<li class="dropdown li_custom">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+						&nbsp;見積履歴&nbsp; <i class="fa fa-bar-chart-o fa-fw"></i> &nbsp;
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="header_btn_right">
+			<ul class="nav navbar-top-links navbar-right">
+				<li class="dropdown li_custom" style="min-width: 80px; text-align: center">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+						<span class="show_w_min_1042">LuvinaTest会社　RyuKamiKirena様 &nbsp;</span><i
+							class="fa fa-user"></i>&nbsp;<i class="fa fa-caret-down"></i>
+					</a>
+					<ul class="dropdown-menu dropdown-user">
+						<li>
+							<a href="#">
+								<i class="fa fa-user fa-fw"></i> Myアカウント
+							</a>
+						</li>
+						<li class="divider"></li>
+						<li>
+							<a href="#">
+								<i class="fas fa-sign-out-alt"></i> Log out
+							</a>
+						</li>
+					</ul>
+				</li>
+				<li class="dropdown li_custom" style="min-width: 80px; text-align: center">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+						日本語&nbsp;
+						<i class="fa fa-globe"></i>&nbsp;<i class="fa fa-caret-down"></i>
+					</a>
+					<ul class="dropdown-menu dropdown-user">
+						<li>
+							<a href="#">
+								English
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								Tiếng Việt
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								Italiano
+							</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<!-- end header cusstom  -->
+	<!-- Default inline 1-->
+	<div class="background_color">
+		<!--class="background_color"-->
+		<div class="page_custom">
+			<!-- START Form Search Content -->
+			<div class="search-box-forms" id="flightSearchBox">
+				<form action="#" method="post">
+					<!-- Variable hidden save data when choose pulldown search  Content -->
+					<input id="inf-flight-way" name="FlightWay" type="hidden" value="D">
+					<input id="inf-transfer-type" name="Transfer_Type" type="hidden" value="-1">
+					<input id="inf-today" name="today" type="hidden" value="">
+					<input id="inf-dcity-code" name="DCity" type="hidden" value="HAN,,">
+					<input id="inf-dcity-name" name="DCityName" type="hidden" value="hanoi">
+					<input id="inf-acity-code" name="ACity" type="hidden" value="DAD,,0,7">
+					<input id="inf-acity-name" name="ACityName" type="hidden" value="Da Nang">
+					<input id="inf-seat-class" name="DSeatSelect" type="hidden" value="">
+					<div class="inf-search-city">
+						<div class="search-box">
+							<div class="inf-field-group inf-group-route">
+								<div class="inf-item-con inf-field-from">
+									<div class="inf-field-item">
+										<input class="inf-input-from" placeholder="出発地" type="text" name="DepartureCity"
+											id="inf-depart-city-input" autocomplete="on">
+									</div>
+								</div>
+								<div class="inf-swap" onclick="changeDepartArrival()">
+									<span id="inf-switch-btn"><i class="fas fa-exchange-alt"
+											style="vertical-align:middle;"></i></span>
+								</div>
+								<div class="inf-item-con inf-field-to">
+									<input class="inf-input-to" placeholder="到着地" type="text" name="ArrivalCity"
+										id="inf-arrival-city-input" autocomplete="on">
+								</div>
+							</div>
+							<div class="inf-field-group inf-group-date">
+								<div class="inf-item-con inf-field-depart">
+									<div class="inf-field-item">
+										<div class="radio-switch">
+											<div class="firt_radio">
+												<label class="radiobox-label">出発
+													<input type="radio" checked="checked" name="radio">
+													<span class="radiobox__box"></span>
+												</label>
+											</div>
+											<div class="second_radio">
+												<label class="radiobox-label">到着
+													<input type="radio" name="radio">
+													<span class="radiobox__box"></span>
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="inf-item-con inf-field-return">
+									<div class="inf-field-item">
+										<input class="inf-input-date" type="text" id="inf-date-input"
+											readonly="readonly">
+									</div>
+								</div>
+								<div class="inf-item-con inf-field-time">
+									<div class="option-date">
+										<select class="form-custom-control-date2">
+											<option value="0" selected>指定なし</option>
+											<option value="1">早朝(04:00-06:59)</option>
+											<option value="2">午前(07:00-11:59)</option>
+											<option value="3">午後(12:00-21:59)</option>
+											<option value="4">夜間(22:00-03:59)</option>
+											<option value="5">00:00</option>
+											<option value="6">01:00</option>
+											<option value="7">02:00</option>
+											<option value="7">03:00</option>
+											<option value="9">04:00</option>
+											<option value="10">05:00</option>
+											<option value="11">06:00</option>
+											<option value="12">07:00</option>
+											<option value="13">08:00</option>
+											<option value="14">09:00</option>
+											<option value="15">10:00</option>
+											<option value="16">11:00</option>
+											<option value="17">12:00</option>
+											<option value="18">13:00</option>
+											<option value="19">14:00</option>
+											<option value="20">15:00</option>
+											<option value="21">16:00</option>
+											<option value="22">17:00</option>
+											<option value="23">18:00</option>
+											<option value="24">19:00</option>
+											<option value="25">20:00</option>
+											<option value="26">21:00</option>
+											<option value="27">22:00</option>
+											<option value="28">23:00</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div id="showsearch" style="display: none">
+								<div class="inf-search-more-info">
+									<div class="airline-designation-label float-left">
+										<label class="infor-search-data custom-color-label">航空会社指定 </label>
+									</div>
+									<div class="airline-designation-pulldown float-left">
+										<div class="select-custom">
+											<input id="airline1" class="form-custom-control" type="text">
+										</div>
+										<div class="select-custom">
+											<input id="airline2" class="form-custom-control" type="text">
+										</div>
+										<div class="select-custom">
+											<input id="airline3" class="form-custom-control" type="text">
+										</div>
+									</div>
+									<div class="airline-designation-checkbox float-left">
+										<label class="checkbox-inline custom-color-label"> <input
+												class="form-check-input" type="checkbox">日系航空会社指定</label>
+									</div>
+								</div>
+								<div class="inf-search-more-info2">
+									<div class="airline-designation-label float-left">
+										<label class="infor-search-data custom-color-label">アライアンス指定</label>
+									</div>
+									<div class="airline-designation-pulldown float-left">
+										<div class="select-custom">
+											<select class="form-custom-control">
+												<option value="" selected="">指定なし</option>
+												<option value="1">スターアライアンス</option>
+												<option value="2">ワンワールド</option>
+												<option value="3">スカイチーム</option>
+											</select>
+										</div>
+									</div>
+									<div class="airline-designation-checkbox float-left">
+										<label class="checkbox-inline custom-color-label"><input
+												class="form-check-input" type="checkbox">直行便指定
+										</label>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="inf-action">
+							<button class="inf-btn-search" id="searchBtn">検 索</button>
+							<br>
+							<label class="option-show-hiden text_center" style="width: 100%; color:#fff;margin-bottom: 0px;">オプション</label>
+						</div>
+					</div>
+				</form>
+			</div>
+			<!-- END Form Search Content -->
+			<!-- custom menu wrapper left right -->
+			<div class="wrapper">
+				<div class="sidebar-lf color-text-leftmenu" id="sidebar-lf">
+					<div class="category-list margin-left-1em margin-right-1em">
+						<div class="sub-category-list">
+							<div id="icon-close-left" onclick="sb_closeleft()"><i class="fa fa-times"
+									style="font-size: 18px;"></i></div>
+							<br>
+							<h5 class="category-top-title border-bottom-1"><span>乗継回数</span> </h5>
+							<div class="form-check">
+								<label class="form-check-label">
+									<input class="form-check-input" type="checkbox" name="checkbox1">
+									直行便
+								</label>
+							</div>
+							<div class="form-check">
+								<label class="form-check-label">
+									<input class="form-check-input" type="checkbox" name="checkbox1">
+									乗継1回以上
+								</label>
+							</div>
+						</div>
+						<div class="sub-category-list">
+							<h5 class="category-title border-bottom-1"><span>出発時刻</span></h5>
+							<div id="from-time-range">
+								<p>TYO-SIN: <span class="from-slider-time-start">00:00</span> - <span
+										class="from-slider-time-end">23:59</span>
+								</p>
+								<div class="from-sliders_step">
+									<div id="from-slider-range"></div>
+								</div>
+							</div>
+						</div>
+						<div class="sub-category-list">
+							<h5 class="category-title border-bottom-1"><span>到着時刻</span></h5>
+							<div id="to-time-range">
+								<p>TYO-SIN: <span class="to-slider-time-start">00:00</span> - <span
+										class="to-slider-time-end">23:59</span>
+								</p>
+								<div class="to-sliders_step">
+									<div id="to-slider-range"></div>
+								</div>
+							</div>
+						</div>
+						<div class="sub-category-list">
+							<h5 class="category-title border-bottom-1"><span>アライアンス</span></h5>
+							<div class="form-check">
+								<label class="form-check-label">
+									<input class="form-check-input" type="checkbox" name="checkbox1">
+									スターアライアンス
+								</label>
+							</div>
+							<div class="form-check">
+								<label class="form-check-label">
+									<input class="form-check-input" type="checkbox" name="checkbox1">
+									ワンワールド
+								</label>
+							</div>
+							<div class="form-check">
+								<label class="form-check-label">
+									<input class="form-check-input" type="checkbox" name="checkbox1">
+									スカイチーム
+								</label>
+							</div>
+						</div>
+						<div class="sub-category-list">
+							<h5 class="category-title border-bottom-1"><span>航空会社</span></h5>
+							<div class="form-all-check">
+								<span class="text_center"><a href="#" class="margin-1em">全て選択</a> <a
+										href="#">全てクリア</a></span>
+							</div>
+							<div class="form-check">
+								<label class="form-check-label">
+									<input class="form-check-input" type="checkbox" name="checkbox1" checked>
+									全日本空輸
+								</label>
+							</div>
+							<div class="form-check">
+								<label class="form-check-label">
+									<input class="form-check-input" type="checkbox" name="checkbox1" checked>
+									タイ航空
+								</label>
+							</div>
+							<div class="form-check">
+								<label class="form-check-label">
+									<input class="form-check-input" type="checkbox" name="checkbox1">
+									アシアナ航空
+								</label>
+							</div>
+							<div class="form-check">
+								<label class="form-check-label">
+									<input class="form-check-input" type="checkbox" name="checkbox1">
+									アシアナ航空
+								</label>
+							</div>
+							<div class="form-check">
+								<label class="form-check-label">
+									<input class="form-check-input" type="checkbox" name="checkbox1">
+									アシアナ航空
+								</label>
+							</div>
+							<div class="form-check">
+								<label class="form-check-label">
+									<input class="form-check-input" type="checkbox" name="checkbox1">
+									アシアナ航空
+								</label>
+							</div>
+							<div class="form-check">
+								<label class="form-check-label">
+									<input class="form-check-input" type="checkbox" name="checkbox1">
+									アシアナ航空
+								</label>
+							</div>
+							<div class="form-check">
+								<label class="form-check-label">
+									<input class="form-check-input" type="checkbox" name="checkbox1">
+									アシアナ航空
+								</label>
+							</div>
+							<div class="form-check">
+								<label class="form-check-label">
+									<input class="form-check-input" type="checkbox" name="checkbox1">
+									アシアナ航空
+								</label>
+							</div>
+							<div class="form-check">
+								<label class="form-check-label">
+									<input class="form-check-input" type="checkbox" name="checkbox1">
+									アシアナ航空
+								</label>
+							</div>
+							<div class="form-check">
+								<label class="form-check-label">
+									<input class="form-check-input" type="checkbox" name="checkbox1">
+									アシアナ航空
+								</label>
+							</div>
+							<div class="form-check">
+								<label class="form-check-label">
+									<input class="form-check-input" type="checkbox" name="checkbox1">
+									アシアナ航空
+								</label>
+							</div>
+							<div class="form-check">
+								<label class="form-check-label">
+									<input class="form-check-input" type="checkbox" name="checkbox1">
+									アシアナ航空
+								</label>
+							</div>
+							<div class="form-check">
+								<label class="form-check-label">
+									<input class="form-check-input" type="checkbox" name="checkbox1">
+									アシアナ航空
+								</label>
+							</div>
+							<div class="form-check">
+								<label class="form-check-label">
+									<input class="form-check-input" type="checkbox" name="checkbox1">
+									アシアナ航空
+								</label>
+							</div>
+						</div>
+						<div class="sub-category-list">
+							<h5 class="category-title border-bottom-1"><span>出発空港</span></h5>
+							<div class="form-check">
+								<label class="form-check-label">
+									<input class="form-check-input" type="checkbox" name="checkbox1">
+									成田
+								</label>
+							</div>
+							<div class="form-check">
+								<label class="form-check-label">
+									<input class="form-check-input" type="checkbox" name="checkbox1">
+									羽田
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="main">
+					<div class="search-result-list">
+						<div class="result-next-back color-text-leftmenu" style="text-align:center; font-size:18px;">
+							<span><a href="#" class="float-left">
+									&#60;1日前 </a></span><span>2019年11月11日出発で検索</span><span><a href="#"
+									class="float-right">1日後&#62;</a></span>
+						</div>
+						<!-- Item search-->
+						<div class="result-item stop-flight">
+							<div class="item-flight">
+								<div class="flight-ponter-click">
+									<div class="result-airline">
+										<div class="result-airline__name">中国国際航空 (エア チャイナ)
+										</div>
+									</div>
+									<div class="flight-time">
+										<div class="result-period__depart text_center">
+											<div class="result-period__code  margin-bottom-14px">
+												<div data-toggle="tooltip" data-placement="top" title="東京 成田">
+													HND
+												</div>
+											</div>
+											<div class="time result-period__time">18:25</div>
+										</div>
+										<div class="time-stop">
+											<div class="result-period__stop font-size-14 margin-bottom-14px">12時間55分
+											</div>
+											<div class="result-period__stop"><span
+													class="font-size-14 color-red">乗継1回</span> <span>PEK</span>
+											</div>
+										</div>
+										<div class="result-period__arrive text_center">
+											<div class="code result-period__code margin-bottom-14px">
+												<div data-toggle="tooltip" data-placement="top"
+													title="ニューヨーク ジョン・F・ケネディ国際 (JFK)">
+													JFK
+												</div>
+											</div>
+											<div class="time  result-period__time">14:20</div>
+										</div>
+										<div class="result-period__line">
+											<span class="result-period__dot"></span>
+											<i class="result-period__triangle1"></i>
+											<i class="result-period__triangle2"></i>
+										</div>
+									</div>
+								</div>
+								<div class="result-toggle-icon">
+									<div class="toggle-icon">
+										<span class="info-btn-show"><i class="fa fa-chevron-down"></i></span>
+										<span class="info-btn-hide"><i class="fa fa-chevron-up"></i></span>
+									</div>
+									<div class="result-add-icon">
+										<span id="icon-add-flight2" class="btn-icon-add"><i
+												class="fas fa-plus-circle"></i></span>
+										<span class=""></span>
+									</div>
+								</div>
+							</div>
+							<div class="hidden-detail-filght display-details">
+								<div class="result-duration__detail ">
+									<div class="item-detail">
+										<div class="infor-flight-title">
+											<div class="title-infor infor-detail-color">
+												中国国際航空 (エア チャイナ) CA422
+											</div>
+											<div class="name-infor">
+												機材：ボーイング777-300
+											</div>
+										</div>
+										<div class="infor-flight-time">
+											<div class="time-detail">
+												3時間55分
+											</div>
+											<div class="time-flight-detail">
+												<div><i class="fas fa-plane-departure"></i>
+													&nbsp;&nbsp;<span>11/10(日)</span>&nbsp;&nbsp;<span
+														class="margin-left-1em">21:10</span> &nbsp;&nbsp;<span
+														class="margin-left-1em"> HND 東京 成田</span>
+												</div>
+												&nbsp;<i class="fas fa-long-arrow-alt-down"></i>
+												<div><i class="fas fa-plane-arrival"></i> &nbsp;&nbsp;<span>11/11(月)
+													</span>&nbsp;<span class="margin-left-1em">00:05</span>
+													&nbsp;&nbsp; <span class="margin-left-1em"> PEK 北京 首都国際　</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="item-detail color-red bg-infor-flight ">
+										<div class="time-delay">
+											<div class="line-time-stop time-detail">
+												<span class="">12時間55分</span>
+											</div>
+											<div class="time-flight-detail">
+												<span><b>乗継</b></span>
+											</div>
+										</div>
+									</div>
+									<div class="item-detail">
+										<div class="infor-flight-title">
+											<div class="title-infor infor-detail-color">
+												中国国際航空 (エア チャイナ) CA981
+											</div>
+											<div class="name-infor">
+												機材：ボーイング777-300
+											</div>
+										</div>
+										<div class="infor-flight-time">
+											<div class="time-detail">
+												3時間20分
+											</div>
+											<div class="time-flight-detail">
+												<div><i class="fas fa-plane-departure"></i>
+													&nbsp;&nbsp;<span>11/11(月)</span>&nbsp;&nbsp;<span
+														class="margin-left-1em">13:00</span> &nbsp;&nbsp;<span
+														class="margin-left-1em"> PEK 北京 首都国際</span>
+												</div>
+												&nbsp;<i class="fas fa-long-arrow-alt-down"></i>
+												<div><i class="fas fa-plane-arrival"></i> &nbsp;&nbsp;<span>11/11(月)
+													</span>&nbsp;<span class="margin-left-1em">14:20</span>
+													&nbsp;&nbsp; <span class="margin-left-1em"> JFK ニューヨーク
+														ジョン・F・ケネディ国際　</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- ENd item search-->
+
+						<!-- Item search-->
+						<div class="result-item non-stop">
+							<div class="item-flight">
+								<div class="flight-ponter-click">
+									<div class="result-airline">
+										<div class="result-airline__name">日本航空
+										</div>
+									</div>
+									<div class="flight-time">
+										<div class="result-period__depart text_center">
+											<div class="result-period__code margin-bottom-14px">
+												<div data-toggle="tooltip" data-placement="top" title="東京 成田 (NRT)">
+													NRT
+												</div>
+											</div>
+											<div class="time result-period__time">18:25</div>
+										</div>
+										<div class="time-stop">
+											<div class="result-period__stop font-size-14 margin-bottom-14px">21時間05分
+											</div>
+											<div class="result-period__stop font-size-14 color-green">直行便 </div>
+										</div>
+										<div class="result-period__arrive text_center">
+											<div class="code result-period__code margin-bottom-14px">
+												<div data-toggle="tooltip" data-placement="top"
+													title="ニューヨーク ジョン・F・ケネディ国際 (JFK)">
+													JFK
+												</div>
+											</div>
+											<div class="time  result-period__time">14:20</div>
+										</div>
+										<div class="result-period__line">
+											<i class="result-period__triangle1"></i>
+											<i class="result-period__triangle2"></i>
+										</div>
+									</div>
+								</div>
+								<div class="result-toggle-icon">
+									<div class="toggle-icon">
+										<span class="info-btn-show"><i class="fa fa-chevron-down"></i></span>
+										<span class="info-btn-hide"><i class="fa fa-chevron-up"></i></span>
+									</div>
+									<div class="result-add-icon">
+										<span id="icon-add-flight" class="btn-icon-add"><i
+												class="fas fa-plus-circle"></i></span>
+										<span class=""></span>
+									</div>
+								</div>
+							</div>
+							<div class="hidden-detail-filght display-details">
+								<div class="result-duration__detail ">
+									<div class="item-detail">
+										<div class="infor-flight-title">
+											<div class="title-infor infor-detail-color">
+												JFK ニューヨーク ジョン・F・ケネディ国際
+											</div>
+											<div class="name-infor">
+												機材：ボーイング777-300
+											</div>
+										</div>
+										<div class="infor-flight-time">
+											<div class="time-detail">
+												12時間55分
+											</div>
+											<div class="time-flight-detail">
+												<div><i class="fas fa-plane-departure"></i>
+													&nbsp;&nbsp;<span>12/31(水)</span>&nbsp;&nbsp;<span
+														class="margin-left-1em">16:40</span> <span
+														class="margin-left-1em"> NRT 東京 成田</span>
+												</div>
+												&nbsp;<i class="fas fa-long-arrow-alt-down"></i>
+												<div><i class="fas fa-plane-arrival"></i> &nbsp;&nbsp;<span>01/01(木)
+													</span>&nbsp;&nbsp;<span class="margin-left-1em">16:35</span> <span
+														class="margin-left-1em"> JFK ニューヨーク
+														ジョン・F・ケネディ国際</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- ENd item search-->
+
+						<!-- Item search-->
+						<div class="result-item stop-flight">
+							<div class="item-flight">
+								<div class="flight-ponter-click">
+									<div class="result-airline">
+										<div class="result-airline__name">中国国際航空 (エア チャイナ)
+										</div>
+									</div>
+									<div class="flight-time">
+										<div class="result-period__depart text_center">
+											<div class="result-period__code  margin-bottom-14px">
+												<div data-toggle="tooltip" data-placement="top" title="東京 成田">
+													HND
+												</div>
+											</div>
+											<div class="time result-period__time">18:25</div>
+											<div class="sizedate">11/10(日) </div>
+										</div>
+										<div class="time-stop">
+											<div class="result-period__stop font-size-14 margin-bottom-14px">12時間55分
+											</div>
+											<div class="result-period__stop"><span
+													class="font-size-14 color-red">乗継1回</span> <span>PEK</span>
+											</div>
+										</div>
+										<div class="result-period__arrive text_center">
+											<div class="code result-period__code margin-bottom-14px">
+												<div data-toggle="tooltip" data-placement="top"
+													title="ニューヨーク ジョン・F・ケネディ国際 (JFK)">
+													JFK
+												</div>
+											</div>
+											<div class="time  result-period__time">14:20</div>
+											<div class="sizedate color-red">11/11(月)</div>
+										</div>
+										<div class="result-period__line">
+											<span class="result-period__dot"></span>
+											<i class="result-period__triangle1"></i>
+											<i class="result-period__triangle2"></i>
+										</div>
+									</div>
+								</div>
+								<div class="result-toggle-icon">
+									<div class="toggle-icon">
+										<span class="info-btn-show"><i class="fa fa-chevron-down"></i></span>
+										<span class="info-btn-hide"><i class="fa fa-chevron-up"></i></span>
+									</div>
+									<div class="result-add-icon">
+										<span id="icon-add-flight" class="btn-icon-add"><i
+												class="fas fa-plus-circle"></i></span>
+										<span class=""></span>
+									</div>
+								</div>
+							</div>
+							<div class="hidden-detail-filght display-details">
+								<div class="result-duration__detail ">
+									<div class="item-detail">
+										<div class="infor-flight-title">
+											<div class="title-infor infor-detail-color">
+												中国国際航空 (エア チャイナ) CA422
+											</div>
+											<div class="name-infor">
+												機材：ボーイング777-300
+											</div>
+										</div>
+										<div class="infor-flight-time">
+											<div class="time-detail">
+												3時間55分
+											</div>
+											<div class="time-flight-detail">
+												<div><i class="fas fa-plane-departure"></i>
+													&nbsp;&nbsp;<span>11/10(日)</span>&nbsp;&nbsp;<span
+														class="margin-left-1em">21:10</span> &nbsp;&nbsp;<span
+														class="margin-left-1em"> HND 東京 成田</span>
+												</div>
+												&nbsp;<i class="fas fa-long-arrow-alt-down"></i>
+												<div><i class="fas fa-plane-arrival"></i> &nbsp;&nbsp;<span>11/11(月)
+													</span>&nbsp;<span class="margin-left-1em">00:05</span>
+													&nbsp;&nbsp; <span class="margin-left-1em"> PEK 北京 首都国際　</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="item-detail color-red bg-infor-flight ">
+										<div class="time-delay">
+											<div class="line-time-stop time-detail">
+												<span class="">12時間55分</span>
+											</div>
+											<div class="time-flight-detail">
+												<span><b>乗継</b></span>
+											</div>
+										</div>
+									</div>
+									<div class="item-detail">
+										<div class="infor-flight-title">
+											<div class="title-infor infor-detail-color">
+												中国国際航空 (エア チャイナ) CA981
+											</div>
+											<div class="name-infor">
+												機材：ボーイング777-300
+											</div>
+										</div>
+										<div class="infor-flight-time">
+											<div class="time-detail">
+												3時間20分
+											</div>
+											<div class="time-flight-detail">
+												<div><i class="fas fa-plane-departure"></i>
+													&nbsp;&nbsp;<span>11/11(月)</span>&nbsp;&nbsp;<span
+														class="margin-left-1em">13:00</span> &nbsp;&nbsp;<span
+														class="margin-left-1em"> PEK 北京 首都国際</span>
+												</div>
+												&nbsp;<i class="fas fa-long-arrow-alt-down"></i>
+												<div><i class="fas fa-plane-arrival"></i> &nbsp;&nbsp;<span>11/11(月)
+													</span>&nbsp;<span class="margin-left-1em">14:20</span>
+													&nbsp;&nbsp; <span class="margin-left-1em"> JFK ニューヨーク
+														ジョン・F・ケネディ国際　</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- ENd item search-->
+
+						<!-- Item search-->
+						<div class="result-item stop-flight">
+							<div class="item-flight">
+								<div class="flight-ponter-click">
+									<div class="result-airline">
+										<div class="result-airline__name">中国国際航空 (エア チャイナ)
+										</div>
+									</div>
+									<div class="flight-time">
+										<div class="result-period__depart text_center">
+											<div class="result-period__code  margin-bottom-14px">
+												<div data-toggle="tooltip" data-placement="top" title="東京 成田">
+													HND
+												</div>
+											</div>
+											<div class="time result-period__time">18:25</div>
+											<div class="sizedate">11/10(日) </div>
+										</div>
+										<div class="time-stop">
+											<div class="result-period__stop font-size-14 margin-bottom-14px">12時間55分
+											</div>
+											<div class="result-period__stop"><span
+													class="font-size-14 color-red">乗継1回</span> <span>PEK</span>
+											</div>
+										</div>
+										<div class="result-period__arrive text_center">
+											<div class="code result-period__code margin-bottom-14px">
+												<div data-toggle="tooltip" data-placement="top"
+													title="ニューヨーク ジョン・F・ケネディ国際 (JFK)">
+													JFK
+												</div>
+											</div>
+											<div class="time  result-period__time">14:20</div>
+											<div class="sizedate color-red">11/11(月)</div>
+										</div>
+										<div class="result-period__line">
+											<span class="result-period__dot"></span>
+											<i class="result-period__triangle1"></i>
+											<i class="result-period__triangle2"></i>
+										</div>
+									</div>
+								</div>
+								<div class="result-toggle-icon">
+									<div class="toggle-icon">
+										<span class="info-btn-show"><i class="fa fa-chevron-down"></i></span>
+										<span class="info-btn-hide"><i class="fa fa-chevron-up"></i></span>
+									</div>
+									<div class="result-add-icon">
+										<span id="icon-add-flight" class="btn-icon-add"><i
+												class="fas fa-plus-circle"></i></span>
+										<span class=""></span>
+									</div>
+								</div>
+							</div>
+							<div class="hidden-detail-filght display-details">
+								<div class="result-duration__detail ">
+									<div class="item-detail">
+										<div class="infor-flight-title">
+											<div class="title-infor infor-detail-color">
+												中国国際航空 (エア チャイナ) CA422
+											</div>
+											<div class="name-infor">
+												機材：ボーイング777-300
+											</div>
+										</div>
+										<div class="infor-flight-time">
+											<div class="time-detail">
+												3時間55分
+											</div>
+											<div class="time-flight-detail">
+												<div><i class="fas fa-plane-departure"></i>
+													&nbsp;&nbsp;<span>11/10(日)</span>&nbsp;&nbsp;<span
+														class="margin-left-1em">21:10</span> &nbsp;&nbsp;<span
+														class="margin-left-1em"> HND 東京 成田</span>
+												</div>
+												&nbsp;<i class="fas fa-long-arrow-alt-down"></i>
+												<div><i class="fas fa-plane-arrival"></i> &nbsp;&nbsp;<span>11/11(月)
+													</span>&nbsp;<span class="margin-left-1em">00:05</span>
+													&nbsp;&nbsp; <span class="margin-left-1em"> PEK 北京 首都国際　</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="item-detail color-red bg-infor-flight ">
+										<div class="time-delay">
+											<div class="line-time-stop time-detail">
+												<span class="">12時間55分</span>
+											</div>
+											<div class="time-flight-detail">
+												<span><b>乗継</b></span>
+											</div>
+										</div>
+									</div>
+									<div class="item-detail">
+										<div class="infor-flight-title">
+											<div class="title-infor infor-detail-color">
+												中国国際航空 (エア チャイナ) CA981
+											</div>
+											<div class="name-infor">
+												機材：ボーイング777-300
+											</div>
+										</div>
+										<div class="infor-flight-time">
+											<div class="time-detail">
+												3時間20分
+											</div>
+											<div class="time-flight-detail">
+												<div><i class="fas fa-plane-departure"></i>
+													&nbsp;&nbsp;<span>11/11(月)</span>&nbsp;&nbsp;<span
+														class="margin-left-1em">13:00</span> &nbsp;&nbsp;<span
+														class="margin-left-1em"> PEK 北京 首都国際</span>
+												</div>
+												&nbsp;<i class="fas fa-long-arrow-alt-down"></i>
+												<div><i class="fas fa-plane-arrival"></i> &nbsp;&nbsp;<span>11/11(月)
+													</span>&nbsp;<span class="margin-left-1em">14:20</span>
+													&nbsp;&nbsp; <span class="margin-left-1em"> JFK ニューヨーク
+														ジョン・F・ケネディ国際　</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- ENd item search-->
+
+
+						<!-- Item search-->
+						<div class="result-item stop-flight">
+							<div class="item-flight">
+								<div class="flight-ponter-click">
+									<div class="result-airline">
+										<div class="result-airline__name">中国国際航空 (エア チャイナ)
+										</div>
+									</div>
+									<div class="flight-time">
+										<div class="result-period__depart text_center">
+											<div class="result-period__code  margin-bottom-14px">
+												<div data-toggle="tooltip" data-placement="top" title="東京 成田">
+													HND
+												</div>
+											</div>
+											<div class="time result-period__time">18:25</div>
+											<div class="sizedate">11/10(日) </div>
+										</div>
+										<div class="time-stop">
+											<div class="result-period__stop font-size-14 margin-bottom-14px">12時間55分
+											</div>
+											<div class="result-period__stop"><span
+													class="font-size-14 color-red">乗継1回</span> <span>PEK</span>
+											</div>
+										</div>
+										<div class="result-period__arrive text_center">
+											<div class="code result-period__code margin-bottom-14px">
+												<div data-toggle="tooltip" data-placement="top"
+													title="ニューヨーク ジョン・F・ケネディ国際 (JFK)">
+													JFK
+												</div>
+											</div>
+											<div class="time  result-period__time">14:20</div>
+											<div class="sizedate color-red">11/11(月)</div>
+										</div>
+										<div class="result-period__line">
+											<span class="result-period__dot"></span>
+											<i class="result-period__triangle1"></i>
+											<i class="result-period__triangle2"></i>
+										</div>
+									</div>
+								</div>
+								<div class="result-toggle-icon">
+									<div class="toggle-icon">
+										<span class="info-btn-show"><i class="fa fa-chevron-down"></i></span>
+										<span class="info-btn-hide"><i class="fa fa-chevron-up"></i></span>
+									</div>
+									<div class="result-add-icon">
+										<span id="icon-add-flight" class="btn-icon-add"><i
+												class="fas fa-plus-circle"></i></span>
+										<span class=""></span>
+									</div>
+								</div>
+							</div>
+							<div class="hidden-detail-filght display-details">
+								<div class="result-duration__detail ">
+									<div class="item-detail">
+										<div class="infor-flight-title">
+											<div class="title-infor infor-detail-color">
+												中国国際航空 (エア チャイナ) CA422
+											</div>
+											<div class="name-infor">
+												機材：ボーイング777-300
+											</div>
+										</div>
+										<div class="infor-flight-time">
+											<div class="time-detail">
+												3時間55分
+											</div>
+											<div class="time-flight-detail">
+												<div><i class="fas fa-plane-departure"></i>
+													&nbsp;&nbsp;<span>11/10(日)</span>&nbsp;&nbsp;<span
+														class="margin-left-1em">21:10</span> &nbsp;&nbsp;<span
+														class="margin-left-1em"> HND 東京 成田</span>
+												</div>
+												&nbsp;<i class="fas fa-long-arrow-alt-down"></i>
+												<div><i class="fas fa-plane-arrival"></i> &nbsp;&nbsp;<span>11/11(月)
+													</span>&nbsp;<span class="margin-left-1em">00:05</span>
+													&nbsp;&nbsp; <span class="margin-left-1em"> PEK 北京 首都国際　</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="item-detail color-red bg-infor-flight ">
+										<div class="time-delay">
+											<div class="line-time-stop time-detail">
+												<span class="">12時間55分</span>
+											</div>
+											<div class="time-flight-detail">
+												<span><b>乗継</b></span>
+											</div>
+										</div>
+									</div>
+									<div class="item-detail">
+										<div class="infor-flight-title">
+											<div class="title-infor infor-detail-color">
+												中国国際航空 (エア チャイナ) CA981
+											</div>
+											<div class="name-infor">
+												機材：ボーイング777-300
+											</div>
+										</div>
+										<div class="infor-flight-time">
+											<div class="time-detail">
+												3時間20分
+											</div>
+											<div class="time-flight-detail">
+												<div><i class="fas fa-plane-departure"></i>
+													&nbsp;&nbsp;<span>11/11(月)</span>&nbsp;&nbsp;<span
+														class="margin-left-1em">13:00</span> &nbsp;&nbsp;<span
+														class="margin-left-1em"> PEK 北京 首都国際</span>
+												</div>
+												&nbsp;<i class="fas fa-long-arrow-alt-down"></i>
+												<div><i class="fas fa-plane-arrival"></i> &nbsp;&nbsp;<span>11/11(月)
+													</span>&nbsp;<span class="margin-left-1em">14:20</span>
+													&nbsp;&nbsp; <span class="margin-left-1em"> JFK ニューヨーク
+														ジョン・F・ケネディ国際　</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- ENd item search-->
+
+						<!-- Item search-->
+						<div class="result-item stop-flight">
+							<div class="item-flight">
+								<div class="flight-ponter-click">
+									<div class="result-airline">
+										<div class="result-airline__name">中国国際航空 (エア チャイナ)
+										</div>
+									</div>
+									<div class="flight-time">
+										<div class="result-period__depart text_center">
+											<div class="result-period__code  margin-bottom-14px">
+												<div data-toggle="tooltip" data-placement="top" title="東京 成田">
+													HND
+												</div>
+											</div>
+											<div class="time result-period__time">18:25</div>
+											<div class="sizedate">11/10(日) </div>
+										</div>
+										<div class="time-stop">
+											<div class="result-period__stop font-size-14 margin-bottom-14px">12時間55分
+											</div>
+											<div class="result-period__stop"><span
+													class="font-size-14 color-red">乗継1回</span> <span>PEK</span>
+											</div>
+										</div>
+										<div class="result-period__arrive text_center">
+											<div class="code result-period__code margin-bottom-14px">
+												<div data-toggle="tooltip" data-placement="top"
+													title="ニューヨーク ジョン・F・ケネディ国際 (JFK)">
+													JFK
+												</div>
+											</div>
+											<div class="time  result-period__time">14:20</div>
+											<div class="sizedate color-red">11/11(月)</div>
+										</div>
+										<div class="result-period__line">
+											<span class="result-period__dot"></span>
+											<i class="result-period__triangle1"></i>
+											<i class="result-period__triangle2"></i>
+										</div>
+									</div>
+								</div>
+								<div class="result-toggle-icon">
+									<div class="toggle-icon">
+										<span class="info-btn-show"><i class="fa fa-chevron-down"></i></span>
+										<span class="info-btn-hide"><i class="fa fa-chevron-up"></i></span>
+									</div>
+									<div class="result-add-icon">
+										<span id="icon-add-flight" class="btn-icon-add"><i
+												class="fas fa-plus-circle"></i></span>
+										<span class=""></span>
+									</div>
+								</div>
+							</div>
+							<div class="hidden-detail-filght display-details">
+								<div class="result-duration__detail ">
+									<div class="item-detail">
+										<div class="infor-flight-title">
+											<div class="title-infor infor-detail-color">
+												中国国際航空 (エア チャイナ) CA422
+											</div>
+											<div class="name-infor">
+												機材：ボーイング777-300
+											</div>
+										</div>
+										<div class="infor-flight-time">
+											<div class="time-detail">
+												3時間55分
+											</div>
+											<div class="time-flight-detail">
+												<div><i class="fas fa-plane-departure"></i>
+													&nbsp;&nbsp;<span>11/10(日)</span>&nbsp;&nbsp;<span
+														class="margin-left-1em">21:10</span> &nbsp;&nbsp;<span
+														class="margin-left-1em"> HND 東京 成田</span>
+												</div>
+												&nbsp;<i class="fas fa-long-arrow-alt-down"></i>
+												<div><i class="fas fa-plane-arrival"></i> &nbsp;&nbsp;<span>11/11(月)
+													</span>&nbsp;<span class="margin-left-1em">00:05</span>
+													&nbsp;&nbsp; <span class="margin-left-1em"> PEK 北京 首都国際　</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="item-detail color-red bg-infor-flight ">
+										<div class="time-delay">
+											<div class="line-time-stop time-detail">
+												<span class="">12時間55分</span>
+											</div>
+											<div class="time-flight-detail">
+												<span><b>乗継</b></span>
+											</div>
+										</div>
+									</div>
+									<div class="item-detail">
+										<div class="infor-flight-title">
+											<div class="title-infor infor-detail-color">
+												中国国際航空 (エア チャイナ) CA981
+											</div>
+											<div class="name-infor">
+												機材：ボーイング777-300
+											</div>
+										</div>
+										<div class="infor-flight-time">
+											<div class="time-detail">
+												3時間20分
+											</div>
+											<div class="time-flight-detail">
+												<div><i class="fas fa-plane-departure"></i>
+													&nbsp;&nbsp;<span>11/11(月)</span>&nbsp;&nbsp;<span
+														class="margin-left-1em">13:00</span> &nbsp;&nbsp;<span
+														class="margin-left-1em"> PEK 北京 首都国際</span>
+												</div>
+												&nbsp;<i class="fas fa-long-arrow-alt-down"></i>
+												<div><i class="fas fa-plane-arrival"></i> &nbsp;&nbsp;<span>11/11(月)
+													</span>&nbsp;<span class="margin-left-1em">14:20</span>
+													&nbsp;&nbsp; <span class="margin-left-1em"> JFK ニューヨーク
+														ジョン・F・ケネディ国際　</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- ENd item search-->
+
+						<!-- Item search-->
+						<div class="result-item stop-flight">
+							<div class="item-flight">
+								<div class="flight-ponter-click">
+									<div class="result-airline">
+										<div class="result-airline__name">中国国際航空 (エア チャイナ)
+										</div>
+									</div>
+									<div class="flight-time">
+										<div class="result-period__depart text_center">
+											<div class="result-period__code  margin-bottom-14px">
+												<div data-toggle="tooltip" data-placement="top" title="東京 成田">
+													HND
+												</div>
+											</div>
+											<div class="time result-period__time">18:25</div>
+											<div class="sizedate">11/10(日) </div>
+										</div>
+										<div class="time-stop">
+											<div class="result-period__stop font-size-14 margin-bottom-14px">12時間55分
+											</div>
+											<div class="result-period__stop"><span
+													class="font-size-14 color-red">乗継1回</span> <span>PEK</span>
+											</div>
+										</div>
+										<div class="result-period__arrive text_center">
+											<div class="code result-period__code margin-bottom-14px">
+												<div data-toggle="tooltip" data-placement="top"
+													title="ニューヨーク ジョン・F・ケネディ国際 (JFK)">
+													JFK
+												</div>
+											</div>
+											<div class="time  result-period__time">14:20</div>
+											<div class="sizedate color-red">11/11(月)</div>
+										</div>
+										<div class="result-period__line">
+											<span class="result-period__dot"></span>
+											<i class="result-period__triangle1"></i>
+											<i class="result-period__triangle2"></i>
+										</div>
+									</div>
+								</div>
+								<div class="result-toggle-icon">
+									<div class="toggle-icon">
+										<span class="info-btn-show"><i class="fa fa-chevron-down"></i></span>
+										<span class="info-btn-hide"><i class="fa fa-chevron-up"></i></span>
+									</div>
+									<div class="result-add-icon">
+										<span id="icon-add-flight" class="btn-icon-add"><i
+												class="fas fa-plus-circle"></i></span>
+										<span class=""></span>
+									</div>
+								</div>
+							</div>
+							<div class="hidden-detail-filght display-details">
+								<div class="result-duration__detail ">
+									<div class="item-detail">
+										<div class="infor-flight-title">
+											<div class="title-infor infor-detail-color">
+												中国国際航空 (エア チャイナ) CA422
+											</div>
+											<div class="name-infor">
+												機材：ボーイング777-300
+											</div>
+										</div>
+										<div class="infor-flight-time">
+											<div class="time-detail">
+												3時間55分
+											</div>
+											<div class="time-flight-detail">
+												<div><i class="fas fa-plane-departure"></i>
+													&nbsp;&nbsp;<span>11/10(日)</span>&nbsp;&nbsp;<span
+														class="margin-left-1em">21:10</span> &nbsp;&nbsp;<span
+														class="margin-left-1em"> HND 東京 成田</span>
+												</div>
+												&nbsp;<i class="fas fa-long-arrow-alt-down"></i>
+												<div><i class="fas fa-plane-arrival"></i> &nbsp;&nbsp;<span>11/11(月)
+													</span>&nbsp;<span class="margin-left-1em">00:05</span>
+													&nbsp;&nbsp; <span class="margin-left-1em"> PEK 北京 首都国際　</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="item-detail color-red bg-infor-flight ">
+										<div class="time-delay">
+											<div class="line-time-stop time-detail">
+												<span class="">12時間55分</span>
+											</div>
+											<div class="time-flight-detail">
+												<span><b>乗継</b></span>
+											</div>
+										</div>
+									</div>
+									<div class="item-detail">
+										<div class="infor-flight-title">
+											<div class="title-infor infor-detail-color">
+												中国国際航空 (エア チャイナ) CA981
+											</div>
+											<div class="name-infor">
+												機材：ボーイング777-300
+											</div>
+										</div>
+										<div class="infor-flight-time">
+											<div class="time-detail">
+												3時間20分
+											</div>
+											<div class="time-flight-detail">
+												<div><i class="fas fa-plane-departure"></i>
+													&nbsp;&nbsp;<span>11/11(月)</span>&nbsp;&nbsp;<span
+														class="margin-left-1em">13:00</span> &nbsp;&nbsp;<span
+														class="margin-left-1em"> PEK 北京 首都国際</span>
+												</div>
+												&nbsp;<i class="fas fa-long-arrow-alt-down"></i>
+												<div><i class="fas fa-plane-arrival"></i> &nbsp;&nbsp;<span>11/11(月)
+													</span>&nbsp;<span class="margin-left-1em">14:20</span>
+													&nbsp;&nbsp; <span class="margin-left-1em"> JFK ニューヨーク
+														ジョン・F・ケネディ国際　</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- ENd item search-->
+
+						<!-- Item search-->
+						<div class="result-item stop-flight">
+							<div class="item-flight">
+								<div class="flight-ponter-click">
+									<div class="result-airline">
+										<div class="result-airline__name">中国国際航空 (エア チャイナ)
+										</div>
+									</div>
+									<div class="flight-time">
+										<div class="result-period__depart text_center">
+											<div class="result-period__code  margin-bottom-14px">
+												<div data-toggle="tooltip" data-placement="top" title="東京 成田">
+													HND
+												</div>
+											</div>
+											<div class="time result-period__time">18:25</div>
+											<div class="sizedate">11/10(日) </div>
+										</div>
+										<div class="time-stop">
+											<div class="result-period__stop font-size-14 margin-bottom-14px">12時間55分
+											</div>
+											<div class="result-period__stop"><span
+													class="font-size-14 color-red">乗継1回</span> <span>PEK</span>
+											</div>
+										</div>
+										<div class="result-period__arrive text_center">
+											<div class="code result-period__code margin-bottom-14px">
+												<div data-toggle="tooltip" data-placement="top"
+													title="ニューヨーク ジョン・F・ケネディ国際 (JFK)">
+													JFK
+												</div>
+											</div>
+											<div class="time  result-period__time">14:20</div>
+											<div class="sizedate color-red">11/11(月)</div>
+										</div>
+										<div class="result-period__line">
+											<span class="result-period__dot"></span>
+											<i class="result-period__triangle1"></i>
+											<i class="result-period__triangle2"></i>
+										</div>
+									</div>
+								</div>
+								<div class="result-toggle-icon">
+									<div class="toggle-icon">
+										<span class="info-btn-show"><i class="fa fa-chevron-down"></i></span>
+										<span class="info-btn-hide"><i class="fa fa-chevron-up"></i></span>
+									</div>
+									<div class="result-add-icon">
+										<span id="icon-add-flight" class="btn-icon-add"><i
+												class="fas fa-plus-circle"></i></span>
+										<span class=""></span>
+									</div>
+								</div>
+							</div>
+							<div class="hidden-detail-filght display-details">
+								<div class="result-duration__detail ">
+									<div class="item-detail">
+										<div class="infor-flight-title">
+											<div class="title-infor infor-detail-color">
+												中国国際航空 (エア チャイナ) CA422
+											</div>
+											<div class="name-infor">
+												機材：ボーイング777-300
+											</div>
+										</div>
+										<div class="infor-flight-time">
+											<div class="time-detail">
+												3時間55分
+											</div>
+											<div class="time-flight-detail">
+												<div><i class="fas fa-plane-departure"></i>
+													&nbsp;&nbsp;<span>11/10(日)</span>&nbsp;&nbsp;<span
+														class="margin-left-1em">21:10</span> &nbsp;&nbsp;<span
+														class="margin-left-1em"> HND 東京 成田</span>
+												</div>
+												&nbsp;<i class="fas fa-long-arrow-alt-down"></i>
+												<div><i class="fas fa-plane-arrival"></i> &nbsp;&nbsp;<span>11/11(月)
+													</span>&nbsp;<span class="margin-left-1em">00:05</span>
+													&nbsp;&nbsp; <span class="margin-left-1em"> PEK 北京 首都国際　</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="item-detail color-red bg-infor-flight ">
+										<div class="time-delay">
+											<div class="line-time-stop time-detail">
+												<span class="">12時間55分</span>
+											</div>
+											<div class="time-flight-detail">
+												<span><b>乗継</b></span>
+											</div>
+										</div>
+									</div>
+									<div class="item-detail">
+										<div class="infor-flight-title">
+											<div class="title-infor infor-detail-color">
+												中国国際航空 (エア チャイナ) CA981
+											</div>
+											<div class="name-infor">
+												機材：ボーイング777-300
+											</div>
+										</div>
+										<div class="infor-flight-time">
+											<div class="time-detail">
+												3時間20分
+											</div>
+											<div class="time-flight-detail">
+												<div><i class="fas fa-plane-departure"></i>
+													&nbsp;&nbsp;<span>11/11(月)</span>&nbsp;&nbsp;<span
+														class="margin-left-1em">13:00</span> &nbsp;&nbsp;<span
+														class="margin-left-1em"> PEK 北京 首都国際</span>
+												</div>
+												&nbsp;<i class="fas fa-long-arrow-alt-down"></i>
+												<div><i class="fas fa-plane-arrival"></i> &nbsp;&nbsp;<span>11/11(月)
+													</span>&nbsp;<span class="margin-left-1em">14:20</span>
+													&nbsp;&nbsp; <span class="margin-left-1em"> JFK ニューヨーク
+														ジョン・F・ケネディ国際　</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- ENd item search-->
+						<div class="text_center" style="text-align:center;">
+							<div class="dataTables_paginate paging_simple_numbers" id="dataTables-example_paginate">
+								<ul class="pagination">
+									<li class="paginate_button previous disabled" aria-controls="dataTables-example"
+										tabindex="0" id="dataTables-example_previous">
+										<a href="#">
+											<span class="fa fa-chevron-left"></span>
+										</a>
+									</li>
+									<li class="paginate_button active" aria-controls="dataTables-example" tabindex="0">
+										<a href="#">1</a>
+									</li>
+									<li class="paginate_button " aria-controls="dataTables-example" tabindex="0"><a
+											href="#">2</a></li>
+									<li class="paginate_button " aria-controls="dataTables-example" tabindex="0"><a
+											href="#">3</a></li>
+									<li class="paginate_button next" aria-controls="dataTables-example" tabindex="0"
+										id="dataTables-example_next">
+										<a href="#">
+											<span class="fa fa-chevron-right"></span>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="sidebar_custom text_color_general" id="sb">
+					<div class="panel panel-primary" style="margin: 0.2em; ">
+						<div class="panel-heading sidebar_header_bg_color">
+							<div class="col_sum">
+								<div class="btn-close" style="width: 100% ;float: right; text-align: right">
+									<a href="javascript:sb_closebasket()">
+										<i class="fas fa-times" style="font-size: 20px; color: aliceblue"></i>
+									</a>
+								</div>
+								<div style="width: 60%; float: left">
+									<b style="font-size: 16px">バスケット</b>
+								</div>
+								<div style="width: 30% ;float: right; text-align: right">
+									<b style="font-size: 12px; cursor: pointer">全てクリア</b>
+								</div>
+							</div>
+						</div>
+						<div class="panel-body" style="padding: 5px;">
+							<form action="04_見積依頼_情報入力.html" method="post">
+								<div class="basket-right-list">
+									<div class="line"></div>
+
+									<div class="basket-item">
+										<div class="col_sum">
+											<table class="clear_padding clear_border">
+												<tbody>
+													<tr class="clear_border">
+														<td
+															class="clear_border_left clear_border_top padding_bottom_2_px">
+															<b><span>全日本空輸</span>&nbsp;&nbsp;<span>NH111</span></b>
+														</td>
+														<td rowspan="2"
+															class="clear_border_top clear_border_right clear_border_bottom">
+															<span class="icon-close-basket-right">
+																<i class="fas fa-times"></i>
+															</span>
+														</td>
+													</tr>
+													<tr class="clear_border only_border_top">
+														<td class="clear_border_bottom clear_border_left padding_top_5_px"
+															style="padding-left: 12px">
+															<span><i class="fas fa-plane-departure"></i> &nbsp;&nbsp;
+																12/31(水) 12:00 HND</span>
+															<br>
+															&nbsp;<i class="fas fa-long-arrow-alt-down"></i>
+															<br>
+															<span><i class="fas fa-plane-arrival"></i> &nbsp;&nbsp;
+																01/01(木) 15:00 SIN</span>
+														</td>
+
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<div class="line"></div>
+									</div>
+
+									<div class="basket-item">
+										<div class="col_sum">
+											<table class="clear_padding clear_border">
+												<tbody>
+													<tr>
+														<td
+															class="clear_border_left clear_border_top padding_bottom_2_px">
+															<b>全日本空輸　NH111</b>
+														</td>
+														<td rowspan="5"
+															class="clear_border_top clear_border_right clear_border_bottom">
+															<span class="icon-close-basket-right">
+																<i class="fas fa-times"></i>
+															</span>
+														</td>
+													</tr>
+													<tr class="clear_border only_border_top">
+														<td class="clear_border_bottom clear_border_left padding_top_5_px"
+															style="padding-left: 12px">
+															<span><i class="fas fa-plane-departure"></i> &nbsp;&nbsp;
+																12/31(水) 12:00 HND</span>
+															<br>
+															&nbsp;<i class="fas fa-long-arrow-alt-down"></i>
+															<br>
+															<span><i class="fas fa-plane-arrival"></i> &nbsp;&nbsp;
+																01/01(木) 15:00 SIN</span>
+														</td>
+													</tr>
+													<tr>
+														<td
+															class="clear_border_bottom clear_border_left clear_border_top padding_top_5_px padding_bottom_5_px">
+															<span style="color: #00BDB4"><i
+																	class="fas fa-random"></i><b>&nbsp;&nbsp;乗継</b></span>
+														</td>
+													</tr>
+													<tr>
+														<td
+															class="clear_border_left clear_border_top padding_bottom_2_px">
+															<b>全日本空輸　NH111</b>
+														</td>
+													</tr>
+													<tr>
+														<td class="clear_border_bottom clear_border_left padding_top_5_px"
+															style="padding-left: 12px">
+															<span><i class="fas fa-plane-departure"></i> &nbsp;&nbsp;
+																12/31(水) 12:00 HND</span>
+															<br>
+															&nbsp;<i class="fas fa-long-arrow-alt-down"></i>
+															<br>
+															<span><i class="fas fa-plane-arrival"></i> &nbsp;&nbsp;
+																01/01(木) 15:00 SIN</span>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<div class="line"></div>
+									</div>
+
+									<div class="basket-item">
+										<div class="col_sum">
+											<table class="clear_padding clear_border">
+												<tbody>
+													<tr class="clear_border">
+														<td
+															class="clear_border_left clear_border_top padding_bottom_2_px">
+															<b><span>全日本空輸</span>&nbsp;&nbsp;<span>NH111</span></b>
+														</td>
+														<td rowspan="2"
+															class="clear_border_top clear_border_right clear_border_bottom">
+															<span class="icon-close-basket-right">
+																<i class="fas fa-times"></i>
+															</span>
+														</td>
+													</tr>
+													<tr class="clear_border only_border_top">
+														<td class="clear_border_bottom clear_border_left padding_top_5_px"
+															style="padding-left: 12px">
+															<span><i class="fas fa-plane-departure"></i> &nbsp;&nbsp;
+																12/31(水) 12:00 HND</span>
+															<br>
+															&nbsp;<i class="fas fa-long-arrow-alt-down"></i>
+															<br>
+															<span><i class="fas fa-plane-arrival"></i> &nbsp;&nbsp;
+																01/01(木) 15:00 SIN</span>
+														</td>
+
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<div class="line"></div>
+									</div>
+
+									<div class="basket-item">
+										<div class="col_sum">
+											<table class="clear_padding clear_border">
+												<tbody>
+													<tr class="clear_border">
+														<td
+															class="clear_border_left clear_border_top padding_bottom_2_px">
+															<b><span>全日本空輸</span>&nbsp;&nbsp;<span>NH111</span></b>
+														</td>
+														<td rowspan="2"
+															class="clear_border_top clear_border_right clear_border_bottom">
+															<span class="icon-close-basket-right">
+																<i class="fas fa-times"></i>
+															</span>
+														</td>
+													</tr>
+													<tr class="clear_border only_border_top">
+														<td class="clear_border_bottom clear_border_left padding_top_5_px"
+															style="padding-left: 12px">
+															<span><i class="fas fa-plane-departure"></i> &nbsp;&nbsp;
+																12/31(水) 12:00 HND</span>
+															<br>
+															&nbsp;<i class="fas fa-long-arrow-alt-down"></i>
+															<br>
+															<span><i class="fas fa-plane-arrival"></i> &nbsp;&nbsp;
+																01/01(木) 15:00 SIN</span>
+														</td>
+
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<div class="line"></div>
+									</div>
+								</div>
+
+
+								<div style="text-align :center"><button class="inf-btn-next">次 へ</button></div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- End custom menu wrapper left right -->
+		</div>
+
+
+		<footer class="sticky-footer bg-white" style="height: 64px; padding-top: 20px;">
+			<div class="container my-auto">
+				<div class="copyright text-center my-auto">
+					<span>Copyright © INFINI TRAVEL 2019</span>
+				</div>
+			</div>
+		</footer>
+
+		<!-- icon top , filter , basket-->
+		<a class="scroll-to-top rounded" href="#page-top">
+			<i class="fa fa-angle-up"></i>
+		</a>
+		<div class="icon-show">
+			<a class="show-filter rounded" id="filter" onclick="sb_openleft()">
+				<i class="fas fa-filter"></i>
+			</a>
+			<a class="show-basket rounded" id="btn_show_basket" onclick="sb_openbasket()">
+				<i class="fas fa-paper-plane"></i>
+			</a>
+		</div>
+		<!-- end icon top , filter , basket-->
+		<div class="overlay-bg overlay-bg-light" id="overlay-disable" onclick="sb_closeall()"></div>
+
+        
+		<script src="jquery/jquery.js"></script>
+		<script src="jquery/jquery-ui.js"></script>
+		<script src="js/customjs.js"></script>
+        
+    </div>
+</body>
+<!-- /background_image -->
+
+</html>

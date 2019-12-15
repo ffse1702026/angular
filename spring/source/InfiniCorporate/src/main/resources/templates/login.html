@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<head th:insert="/layout/header.htm">
+</head>
+<body style="background-color: white;">
+	<nav th:insert="/layout/top.html"
+		class="navbar navbar-default navbar-static-top" id="menu"
+		role="navigation" style="margin-bottom: 0px;"></nav>
+
+	<!--class="container-fluit"-->
+	<div class="page_custom" id="page-top">
+		<div id="content" class="content_review">
+			<form name="f" th:action="@{/j_spring_security_check}" method='POST'>
+				<div class="line"></div>
+				<div class="row_custom" style="padding-top: 20px">
+					<div class="col-md-12">
+						<div th:if="${#request.getParameter('error') == 'true'}"
+							style="margin: 10px 0px;" class="alert alert-danger">
+							Login Failed!!!<br /> Reason : <span
+								th:if="${#session!= null and #session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION') != null}"
+								th:utext="${#session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION').message}">
+							</span>
+						</div>
+					</div>
+					<div class="col-md-12">
+						<div class="col_sum" style="max-width: 480px; margin: auto;">
+							<label class="text_color_general" style="font-size: 16px"><b>アカウント</b>&nbsp;&nbsp;(メールアドレス)</label>
+							<input type="text" class="txt text_color_general focus"
+								name="Username">
+						</div>
+						<div class="col_sum" style="max-width: 480px; margin: auto;">
+							<label class="text_color_general"
+								style="font-size: 16px; width: 400px"><b>PW</b></label> <input
+								type="password" class=" txt text_color_general"
+								style="border: 1px;" name="Password">
+						</div>
+					</div>
+				</div>
+				<div style="text-align: center; padding: 20px">
+					<div class="col_sum" style="margin: auto">
+						<button type="submit" class="btn btn-primary" style="width: 120px">ログイン</button>
+					</div>
+				</div>
+				<div style="text-align: center; padding: 20px">
+					<div class="col_sum" style="margin: auto">
+						<a href="#"><i class="fas fa-redo-alt">&nbsp;&nbsp;パスワードをお忘れの方はこちら</i></a>
+					</div>
+				</div>
+				<div class="line"></div>
+			</form>
+		</div>
+	</div>
+	<a class="scroll-to-top rounded" href="#page-top"> <i
+		class="fa fa-angle-up"></i>
+	</a>
+
+</body>
+</html>

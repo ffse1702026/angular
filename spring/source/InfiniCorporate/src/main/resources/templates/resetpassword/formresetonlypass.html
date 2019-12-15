@@ -1,0 +1,64 @@
+<form action="/inf_admin/agent/reset" method="post"
+	enctype="multipart/form-data" xmlns:th="http://www.thymeleaf.org">
+	<div class="panel panel-primary "
+		style="margin-right: 0.5em; margin-top: 20px">
+		<div class="panel-body">
+			<div class="tab-content clearfix">
+				<div class="tab-pane active" id="1b">
+					<div class="row_custom">
+						<div class="col-md-12">
+							<table id="a_custom_table" width="100%" class="a_margin_left_50"
+								style="background-color: white; border: 0px;">
+								<tbody>
+									<tr>
+										<td><input type="hidden" name="agent_id"
+											th:value="${agent_id}" /></td>
+										<td><input type="hidden" name="corporate_id" /></td>
+									</tr>
+									<tr class="gradeA odd" role="row">
+										<td class="a_td1_custom">新しいパスワード<span style="color: red">&nbsp;*</span><span>&nbsp;:</span></td>
+										<td class="color_blue_black">
+											<div class="col_sum">
+												<input type="password" maxlength="15" class="a_w_280 txt"
+													required="required" name="password"> <span
+													class="lbl_14_px">&nbsp; &nbsp;</span>
+											</div>
+										</td>
+									</tr>
+									<tr class="gradeA odd" role="row">
+										<td class="a_td1_custom">新しいパスワード(再入力)<span
+											style="color: red">&nbsp;</span><span>&nbsp;:</span></td>
+										<td class="color_blue_black">
+											<div class="col_sum">
+												<input type="password" maxlength="15" class="a_w_280 txt"
+													required="required" name="repassword"> <span
+													class="lbl_14_px">&nbsp; &nbsp;</span>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div style="text-align: center;">
+					<div class="col_sum" style="margin: auto; margin-left: 220px">
+						<button type="submit" href="#" class="btn btn-primary"
+							style="width: 120px; float: left;">新規追加</button>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-10">
+				<div th:if="${messageError!=null}" class="alert alert-danger">
+					<ul th:each="error :${listError}">
+						<li th:text="${error}"></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</form>
+

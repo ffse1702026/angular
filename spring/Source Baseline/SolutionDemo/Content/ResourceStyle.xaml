@@ -1,0 +1,37 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="ControlStyle" TargetType="Control">
+        <Setter Property="FontFamily" Value="Microsoft Sans Serif" />
+    </Style>
+    <Style x:Key="TextBoxStyle" TargetType="{x:Type TextBox}">
+        <Setter Property="FontFamily" Value="Microsoft Sans Serif" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Height" Value="23" />
+        <Setter Property="CharacterCasing" Value="Upper" />
+        <Setter Property="InputMethod.IsInputMethodEnabled" Value="False" />
+    </Style>
+    <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
+        <Setter Property="Width" Value="80" />
+        <Setter Property="Height" Value="23" />
+        <Setter Property="FontFamily" Value="Microsoft Sans Serif" />
+    </Style>
+    <Style x:Key="ComboboxStyle" TargetType="{x:Type ComboBox}">
+        <Setter Property="Height" Value="23" />
+        <Setter Property="FontFamily" Value="Microsoft Sans Serif" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+    </Style>
+    <Style x:Key="LabelStyle" TargetType="Control">
+        <Setter Property="FontFamily" Value="Microsoft Sans Serif" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+
+    <Style TargetType="Button" BasedOn="{StaticResource ButtonStyle}"/>
+    <Style TargetType="Label" BasedOn="{StaticResource LabelStyle}"/>
+    <Style TargetType="CheckBox" BasedOn="{StaticResource ControlStyle}"/>
+    <Style TargetType="RadioButton" BasedOn="{StaticResource ControlStyle}"/>
+    <Style TargetType="ComboBox" BasedOn="{StaticResource ComboboxStyle}"/>
+    <Style TargetType="MenuItem" BasedOn="{StaticResource ControlStyle}"/>
+    <Style TargetType="TextBox" BasedOn="{StaticResource TextBoxStyle}"/>
+    <Style TargetType="GroupBox" BasedOn="{StaticResource ControlStyle}"/>
+</ResourceDictionary>

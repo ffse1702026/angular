@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>List Student</title>
+<style>
+table, th, td {
+	border: 1px solid black;
+}
+</style>
+</head>
+<body>
+
+	Language :
+	<a href="?language=en">English</a>|
+	<a href="?language=vi_VN">Viet Nam</a>|
+	<a href="?language=ja_JP">Japanese</a>|
+	<h1>List Student</h1>
+	<br />
+	<table>
+		<thead>
+			<tr>
+				<th><p th:text="#{id}"></p></th>
+				<th><p th:text="#{name}"></p></th>
+				<th><p th:text="#{email}"></p></th>
+				<th><p th:text="#{age}"></p></th>
+				<th><p th:text="#{address}"></p></th>
+				<th><p >Action</p></th>
+			</tr>
+		</thead>
+		<tbody>
+			<th:block th:each="student :${listStudent}">
+				<tr>
+					<td th:text="${student.id}"></td>
+					<td th:text="${student.name}"></td>
+					<td th:text="${student.email}"></td>
+					<td th:text="${student.age}"></td>
+					<td th:text="${student.address}"></td>
+					<td><a th:href="${'/student/update/'+student.id}">edit</a><a th:href="${'/student/delete/'+student.id}">delete</a></td>
+				</tr>
+			</th:block>
+		</tbody>
+	</table>
+	<a href="/student/create">Create Anew</a>|
+</body>
+</html>

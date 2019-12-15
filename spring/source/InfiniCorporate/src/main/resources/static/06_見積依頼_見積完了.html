@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=11">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Jquery Core JS, CSS -->
+    <link href="./jquery/jquery-ui.css" rel="stylesheet">
+    <script src="./jquery/jquery.js"></script>
+    <script src="./jquery/jquery-ui.js"></script>
+
+
+
+    <!-- Custom JS -->
+    <script src="js/Custom.js"></script>
+
+
+    <!-- Custom Style -->
+    <link href="css/custom-css.css" rel="stylesheet">
+
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="bootstrap/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="bootstrap/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="bootstrap/dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="bootstrap/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- jQuery -->
+    <script src="bootstrap/vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="bootstrap/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="bootstrap/vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="bootstrap/dist/js/sb-admin-2.js"></script>
+
+
+
+</head>
+
+<body id="page-top">
+
+    <div id="wrapper">
+
+        <nav class="navbar navbar-default navbar-static-top" id="menu" role="navigation" style="height: auto">
+            <div class="navbar-header">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#"><b>AGT/企業ロゴ</b></a>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" onclick="menu_show_hide()" data-target=".navbar-collapse">
+                        <span class="sr-only"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="header_btn_left" id="header_btn_left">
+                <ul class="nav navbar-top-links navbar-collapse navbar-left sidebar-nav navbar-collapse navbar-default" id="side-menu" role="navigation">
+                    <li class="dropdown li_custom">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            &nbsp;見積依頼&nbsp;<i class="fa fa-shopping-cart"></i>&nbsp;
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li class="dropdown li_custom">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            &nbsp;見積履歴&nbsp; <i class="fa fa-bar-chart-o fa-fw"></i> &nbsp;
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="header_btn_right">
+                <ul class="nav navbar-top-links navbar-right">
+                    <li class="dropdown li_custom" style="min-width: 80px; text-align: center">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <span class="show_w_min_1042">LuvinaTest会社　RyuKamiKirena様 &nbsp;</span><i class="fa fa-user"></i>&nbsp;<i class="fa fa-caret-down"></i>
+                        </a>
+
+                        <ul class="dropdown-menu dropdown-user">
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-user fa-fw"></i> Myアカウント
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">
+                                    <i class="fas fa-sign-out-alt"></i> Log out
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown li_custom" style="min-width: 80px; text-align: center">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            日本語&nbsp;
+                            <i class="fa fa-globe"></i>&nbsp;<i class="fa fa-caret-down"></i>
+                        </a>
+
+                        <ul class="dropdown-menu dropdown-user">
+                            <li>
+                                <a href="#">
+                                    English
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Tiếng Việt
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Italiano
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+
+        <!-- Page Content -->
+        <div class="container-fluid">
+            <div class="col-lg-12" style="min-height: calc(100vh - 160px)">
+                <div class=" paging_center">
+                    <p class="page-header text-primary">
+                        <span class="detail_main" style="font-size: 32px; margin-left: 0px">お見積依頼いただきありがとうございました。<br>
+                            旅行会社からの返信をしばらくお待ちください。
+                        </span>
+                    </p>
+                </div>
+                <div class="paging_center default-notice">
+                    <img class="image-notice" src="img/thankyou.jpeg">
+                </div>
+
+                <div class="paging_center">
+                    <a href="05_見積依頼_確認.html" type="button" class="btn btn-primary inf-btn-back" style="height: 36px; padding-top: 8px">戻る</a>
+                </div>
+            </div>
+
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto" style="padding-top: 15px">
+                        <span>Copyright © INFINI TRAVEL 2019</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+    <!-- /#wrapper -->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</body>
+
+</html>

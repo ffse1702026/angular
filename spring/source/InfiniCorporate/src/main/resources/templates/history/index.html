@@ -1,0 +1,222 @@
+<div class="title_main" style="min-height: calc(100vh - 180px)">
+	<div id="content" class="content_review"
+		style="padding-left: 0px; max-width: none; padding-right: 1em">
+		<div class="line"></div>
+		<div class="row_custom" xmlns:th="http://www.thymeleaf.org">
+			<div class="col-md-12" style="padding-right: 0px">
+				<div class="col_sum" style="width: 100%">
+					<form method="GET" th:action="@{/inf_admin/history}">
+						<div class="col_35_percent" style="max-width: none; width: 500px">
+							<label class="lbl_time" style="padding-top: 6px; font-size: 16px"><b>検索期間
+									:&nbsp;</b></label> <input class="txt_custom" type="text"
+								style="text-align: center; background-color: aliceblue; width: 148px;"
+								id="fromDate" name="date_from"
+								th:value="${#request.getParameter('date_from') != null ? #request.getParameter('date_from') : currentTime}"> <label
+								style="width: 8%; text-align: center; max-width: 24px">～</label>
+							<input class="txt_custom" type="text"
+								style="text-align: center; background-color: aliceblue; width: 148px;"
+								id="toDate" name="date_to"
+								th:value="${#request.getParameter('date_to') != null ? #request.getParameter('date_to') : currentTime}"> <label
+								style="width: 5%; text-align: center; max-width: 16px">&nbsp;</label>
+
+						</div>
+
+						<div class="col_35_percent search_05"
+							style="width: 400px; max-width: none">
+							<label style="padding-top: 6px; font-size: 16px"><b>キーワード
+									:&nbsp;</b></label> <input type="text" class="txt_custom search_05_input"
+								style="background-color: aliceblue; width: 180px"> <label
+								style="width: 5%; max-width: 16px">&nbsp;</label>
+							<button type="submit" class="btn btn-primary" style="width: 80px"
+								name="keysearch"
+								th:value="${#request.getParameter('keysearch')}">検索</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="row_custom" xmlns:th="http://www.thymeleaf.org">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col_sum" style="text-align: right; padding-right: 20px">
+						<label> <b th:text="${totalRecords}"></b> 件
+						</label>
+					</div>
+				</div>
+				<div id="dataTables-example_wrapper"
+					class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+					<div class="row custom_scrollbar"
+						style="overflow-x: auto; overflow-y: hidden; width: calc(100% + 30px); height: 740px !important">
+						<div>
+							<div class="col-sm-12" style="padding: 0px; padding-left: 1px">
+								<table
+									style="width: 2400px; margin-bottom: 0px; margin-top: 0px; max-width: none; font-weight: normal; font-size: 14px; table-layout: fixed"
+									class="table table-hover table-striped table-bordered table-sm"
+									id="dataTable" cellspacing="0">
+									<thead class="tbl_head">
+										<tr role="row">
+											<th style="width: 40px" rowspan="1" colspan="1">No</th>
+											<th style="width: 5%" rowspan="1" colspan="1">見積依頼番号</th>
+											<th style="width: 5%" rowspan="1" colspan="1">見積依頼日</th>
+											<th style="width: 5%" rowspan="1" colspan="1">pcc</th>
+											<th style="width: 6%" rowspan="1" colspan="1">旅行会社名</th>
+											<th style="width: 5%" rowspan="1" colspan="1">企業名</th>
+											<th style="width: 5%" rowspan="1" colspan="1">依頼者名</th>
+											<th style="width: 5%" rowspan="1" colspan="1">電話番号</th>
+											<th style="width: 6%" rowspan="1" colspan="1">メールアドレス</th>
+											<th style="width: 8%" rowspan="1" colspan="1">メールアドレス(CC)</th>
+											<th style="width: 4%; text-align: center" rowspan="1"
+												colspan="1">旅客人数<br>大人
+											</th>
+											<th style="width: 4%; text-align: center" rowspan="1"
+												colspan="1">旅客人数<br>小児
+											</th>
+											<th style="width: 4%; text-align: center" rowspan="1"
+												colspan="1">旅客人数<br>席あり幼児
+											</th>
+											<th style="width: 4%; text-align: center" rowspan="1"
+												colspan="1">旅客人数<br>席なし幼児
+											</th>
+											<th style="width: 5%" rowspan="1" colspan="1">依頼内容</th>
+											<th style="width: 5%" rowspan="1" colspan="1">優先条件</th>
+											<th style="width: 5%" rowspan="1" colspan="1">クラス希望</th>
+											<th style="width: 6%" rowspan="1" colspan="1">希望運賃</th>
+											<th style="width: 6%" rowspan="1" colspan="1">その他リクエスト</th>
+											<th style="width: calc(12% -40px)" rowspan="1" colspan="1">リクエスト入力欄</th>
+										</tr>
+									</thead>
+								</table>
+							</div>
+							<div class="custom_scrollbar">
+								<div class="col-sm-12" style="padding: 0px">
+									<table
+										style="width: 2400px; margin-bottom: 0px; margin-top: 0px; max-width: none; font-weight: normal; font-size: 14px; table-layout: fixed; word-break: break-all"
+										class="table table-hover table-striped table-bordered table-sm"
+										id="dataTable" cellspacing="0">
+										<tbody>
+											<tr class="gradeA odd" role="row"
+												th:each="requestItem,itrStat:${listRequestItem}">
+												<td style="width: 40px" th:text="${itrStat.index+1}"></td>
+												<td style="width: 5%"><a
+													th:href="'/inf_admin/history/detail/' + ${requestItem.request_id}"
+													th:text="${requestItem.request_id}"></a></td>
+												<td style="width: 5%" th:text="${requestItem.created_date}"></td>
+												<td style="width: 5%" th:text="${requestItem.agent_id.pcc}"></td>
+												<td style="width: 6%"
+													th:text="${requestItem.agent_id.agent_name}"></td>
+												<td style="width: 5%"
+													th:text="${requestItem.corporate_id.corporate_name}"></td>
+												<td style="width: 5%"
+													th:text="${requestItem.requestor_name}"></td>
+												<td style="width: 5%"
+													th:text="${requestItem.requestor_phone}"></td>
+												<td style="width: 6%" th:text="${requestItem.to}"></td>
+												<td style="width: 8%" th:text="${requestItem.cc}"></td>
+												<td style="width: 4%; text-align: center"
+													th:text="${requestItem.num_of_adt}"></td>
+												<td style="width: 4%; text-align: center"
+													th:text="${requestItem.num_of_cnn}"></td>
+												<td style="width: 4%; text-align: center"
+													th:text="${requestItem.num_of_ins}"></td>
+												<td style="width: 4%; text-align: center"
+													th:text="${requestItem.num_of_inf}"></td>
+												<td style="width: 5%"
+													th:switch="${requestItem.request_type}"><th:block
+														th:case="0" th:text="見積もり"></th:block> <th:block
+														th:case="1" th:text="予約"></th:block> <th:block th:case="9"
+														th:text="その他"></th:block></td>
+												<td style="width: 5%"
+													th:switch="${requestItem.prefer_condition}"><th:block
+														th:case="0" th:text="料金"></th:block> <th:block th:case="1"
+														th:text="日程"></th:block> <th:block th:case="2"
+														th:text="航空会社"></th:block> <th:block th:case="9"
+														th:text="特になし"></th:block></td>
+												<td style="width: 5%"
+													th:switch="${requestItem.prefer_class}"><th:block
+														th:case="0" th:text="特になし"></th:block> <th:block
+														th:case="1" th:text="最安運賃"></th:block> <th:block
+														th:case="2" th:text="条件優先"></td>
+												<td style="width: 6%" th:switch="${requestItem.prefer_fare}">
+													<th:block th:case="0" th:text="特になし"></th:block> <th:block
+														th:case="1" th:text="最安運賃"></th:block> <th:block
+														th:case="2" th:text="条件優先"></th:block>
+												</td>
+												<th style="width: 6%" th:text="${requestItem.other_request}">その他リクエスト</th>
+												<td style="width: calc(12% -40px)"
+													th:text="${requestItem.free_text}" class="ellipsis"></td>
+											</tr>
+
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row" th:if="${enablePagination}">
+					<div class="col-md-8 col-md-offset-2 text_center">
+						<div class="dataTables_paginate paging_simple_numbers"
+							id="dataTables-example_paginate">
+							<ul class="pagination">
+								<li
+									th:with="pathPre=@{/inf_admin/history/?page=}+${page-1}+${searchParam},
+                             pathPreDisable=@{/inf_admin/history/?page=}+${page}+${searchParam}"
+									th:class="'paginate_button previous ' + ${disableFirstPage != null ? 'disabled' : ''}"
+									aria-controls="dataTables-example" tabindex="0"
+									id="dataTables-example_previous"><a
+									th:href="${disableFirstPage==null?pathPre:pathPreDisable}">
+										<span class="fa fa-chevron-left"></span>
+								</a></li>
+								<li th:each="pageNo:${listPage}"
+									th:class="'paginate_button'+ ${page == pageNo ? ' active':''}"
+									th:with="path=@{/inf_admin/history/?page=}+${pageNo}+${searchParam}"
+									aria-controls="dataTables-example" tabindex="0"><a
+									th:href="${path}" th:text="${pageNo}">1</a></li>
+								<li
+									th:with="pathNe=@{/inf_admin/history/?page=}+${page+1}+${searchParam}
+                            ,pathNeDisable=@{/inf_admin/history/?page=}+${page}+${searchParam}"
+									th:class="'paginate_button next ' + ${disableLastPage!=null?'disabled':''}"
+									aria-controls="dataTables-example" tabindex="0"
+									id="dataTables-example_next"><a
+									th:href="${disableLastPage==null ? pathNe : pathNeDisable}">
+										<span class="fa fa-chevron-right"></span>
+								</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="line"></div>
+				<div style="text-align: right; padding: 0px 20px 50px 0px">
+					<div class="col_sum" style="margin: right">
+						<a type="button" class="btn btn-primary" href="/inf_admin/menu"
+							style="width: 120px">戻る</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	$(document).ready(function() {
+		$(".ellipsis").each(function() {
+			var text = $(this).text();
+			if (text.length > 30) {
+				text = text.substring(0, (30)) + "「…」";
+				$(this).text(text);
+			}
+		});
+		$('#date_from').val(new Date().toISOString().substr(0, 16));
+		$('#date_to').val(new Date().toISOString().substr(0, 16));
+	});
+</script>
+<script>
+	$(document).ready(function() {
+		$(".delete").click(function() {
+			var link = $(this).attr("data-link");
+			if (confirm("Are you sure delete!")) {
+				window.location.href = link;
+			}
+		});
+	});
+</script>

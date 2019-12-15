@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<th:block th:switch="${status}">
+	<th:block th:case="'COMPLETE'">
+		<div >123</div>
+	</th:block>
+	<th:block th:case="'INVALID'">
+		<div >456</div>
+	</th:block>
+	<th:block th:case="'NEW'">
+		<div >789</div>
+	</th:block>
+</th:block>

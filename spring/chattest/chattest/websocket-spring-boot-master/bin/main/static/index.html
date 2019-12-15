@@ -1,0 +1,38 @@
+<html>
+<head>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
+      <!-- https://cdnjs.com/libraries/stomp.js/ -->
+      <script  src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      
+    <style>
+        #messages {
+            text-align: left;
+            width: 50%;
+            padding: 1em;
+            border: 1px solid black;
+        }
+    </style>
+    <title>Sample WebSocket Client</title>
+</head>
+<body>
+<div class="container">
+    <div id="messages" class="messages"></div>
+    <div class="input-fields">
+        <p>Type a message and hit send:</p>
+        <input id="message"/>
+        <button id="send">Send</button>
+
+        <p>Select an image and hit send:</p>
+        <input type="file" id="file" />
+
+        <button id="sendImage">Send Image</button>
+        <input type="hidden" id="file_name">
+    </div>
+</div>
+</body>
+<script  src="js/script.js"></script>
+<script>
+
+</script>
+</html>
