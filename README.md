@@ -58,3 +58,159 @@
     "typescript": "~3.5.3"
   }
 }
+
+import {
+    transition,
+    trigger,
+    query,
+    style,
+    animate,
+    group,
+    stagger,
+    animateChild,
+    sequence
+} from '@angular/animations';
+import { AnimationsService } from './app.transition.service';
+
+const animations = [
+    trigger('appendItemToListAnimation', [
+        transition(':enter', [
+            query(
+                '.animated-item',
+                [
+                    style({ opacity: 0, transform: 'translateY(-50px)' }),
+                    stagger(300, [
+                        animate(
+                            '500ms cubic-bezier(0.35, 0, 0.25, 1)',
+                            style({ opacity: 1, transform: 'none' })
+                        )
+                    ])
+                ],
+                { optional: true }
+            )
+        ])
+    ]),
+    trigger('expandeCollapseAnimation', [
+        transition(':enter', [
+            query(
+                '.animated-item',
+                [
+                    style({ opacity: 0 }),
+                    animate('500ms cubic-bezier(0.35, 0, 0.25, 1)', style({ opacity: 1 }))
+                ],
+                { optional: true }
+            )
+        ]),
+        transition(':leave', [
+            query(
+                '.animated-item',
+                [
+                    style({ opacity: 1 }),
+                    animate('500ms cubic-bezier(0.35, 0, 0.25, 1)', style({ opacity: 0 }))
+                ],
+                { optional: true }
+            )
+        ])
+    ]),
+    trigger('nextStepAnimation', [
+        transition(':enter', [
+            style({
+                transform: 'translateX(100%)',
+                position: 'absolute',
+                opacity: 0
+            }),
+            animate(
+                '300ms cubic-bezier(0.35, 0, 0.25, 1)',
+                style({ transform: 'translateX(0%)', opacity: 1 })
+            )
+        ]),
+        transition(':leave', [
+            style({
+                position: 'absolute',
+                opacity: 1
+            }),
+            animate('100ms ease-in', style({ opacity: 0 }))
+        ])
+    ])
+];
+export const ComponentAnimations = animations;
+
+// Element transitions
+const STEPS_ALL: any[] = [
+    query(':enter > *', style({ opacity: 0, position: 'fixed' }), {
+        optional: true
+    }),
+    query(':enter div', style({ opacity: 0 }), {
+        optional: true
+    }),
+    sequence([
+        query(
+            ':leave > *',
+            [
+                style({ transform: 'translateY(0%)', opacity: 1 }),
+                animate(
+                    '0.2s ease-in-out',
+                    style({ transform: 'translateY(-3%)', opacity: 0 })
+                ),
+                style({ position: 'fixed' })
+            ],
+            { optional: true }
+        ),
+        query(
+            ':enter > *',
+            [
+                style({
+                    transform: 'translateY(-3%)',
+                    opacity: 0,
+                    position: 'static'
+                }),
+                animate(
+                    '0.5s ease-in-out',
+                    style({ transform: 'translateY(0%)', opacity: 1 })
+                )
+            ],
+            { optional: true }
+        )
+    ]),
+    query(
+        ':enter div, :enter h1, :enter h2, :enter h3, :enter table',
+        stagger(20, [
+            style({ transform: 'translateY(-5%)', opacity: 0 }),
+            animate(
+                '0.5s ease-in-out',
+                style({ transform: 'translateY(0%)', opacity: 1 })
+            )
+        ]),
+        { optional: true }
+    )
+];
+const STEPS_NONE = [];
+const STEPS_PAGE = [STEPS_ALL[0], STEPS_ALL[2]];
+const STEPS_ELEMENTS = [STEPS_ALL[1], STEPS_ALL[3]];
+
+export const routeAnimations = [
+    trigger('routeAnimations', [
+        transition(isRouteAnimationsAll, STEPS_ALL),
+        transition(isRouteAnimationsNone, STEPS_NONE),
+        transition(isRouteAnimationsPage, STEPS_PAGE),
+        transition(isRouteAnimationsElements, STEPS_ELEMENTS)
+    ])
+];
+
+export function isRouteAnimationsAll() {
+    return AnimationsService.isRouteAnimationsType('ALL');
+}
+
+export function isRouteAnimationsNone() {
+    return AnimationsService.isRouteAnimationsType('NONE');
+}
+
+export function isRouteAnimationsPage() {
+    return AnimationsService.isRouteAnimationsType('PAGE');
+}
+
+export function isRouteAnimationsElements() {
+    return AnimationsService.isRouteAnimationsType('ELEMENTS');
+}
+
+
