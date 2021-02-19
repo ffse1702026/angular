@@ -7,6 +7,14 @@ uwsgi
 flask
 redis
 celery
+import flask
+from flask import Flask, request, abort
+from celery import Celery
+from celery.result import AsyncResult
+
+from scipy.cluster.hierarchy import linkage
+import pandas as pd
+from sklearn.manifold import TSNE
 
 {
   "name": "agoda-app",
