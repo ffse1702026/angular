@@ -1,3 +1,13 @@
+numpy
+scipy
+matplotlib
+pandas
+sklearn
+uwsgi
+flask
+redis
+celery
+
 {
   "name": "agoda-app",
   "version": "0.0.0",
